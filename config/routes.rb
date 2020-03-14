@@ -12,7 +12,6 @@ Rails.application.routes.draw do
 
   devise_for :experts, controllers: {
     sessions:      'experts/sessions',
-    passwords:     'experts/passwords',
     registrations: 'experts/registrations'
   }
   root 'top#home'
