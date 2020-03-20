@@ -1,0 +1,14 @@
+<header>
+  <% if user_signed_in? %>
+    <div class="container">
+      <%= link_to "HOME", root_path, class: "navbar__brand navbar__mainLogo" %>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
+
+    </div>
+  <% else %>
+    <div class="container">
+      <%= link_to "HOME", root_path, class: "navbar__brand navbar__mainLogo" %>
+      <%= link_to "マイページ", edit_user_registration_path, class: "navbar__brand navbar__mainLogo" %>
+    </div>
+  <% end %>
+</header>
