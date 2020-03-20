@@ -14,5 +14,7 @@ Rails.application.routes.draw do
     sessions:      'experts/sessions',
     registrations: 'experts/registrations'
   }
+
   root 'top#home'
+  resources :questions
 end
