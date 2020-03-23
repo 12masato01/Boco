@@ -10,7 +10,10 @@
 </head>
 
 <body>
+    <% if user_signed_in?%>
     <%= render 'layouts/header' %>
+    <% else %>
+    <%= render 'layouts/guest_header' %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <%= yield %>
