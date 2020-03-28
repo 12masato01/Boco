@@ -1,17 +1,29 @@
 <header>
-    <% if user_signed_in? %>
-    <div class="container">
-        <%= link_to "HOME", root_path, class: "navbar__brand navbar__mainLogo" %>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-        <%= link_to "質問", new_question_path %>
-        <%= link_to "質問一覧", questions_path %>
-        <%= link_to "マイページ", edit_user_registration_path %>
-
-    </div>
-    <% else %>
-    <div class="container">
-        <%= link_to "HOME", root_path, class: "navbar__brand navbar__mainLogo" %>
-        <%= link_to "マイページ", edit_user_registration_path, class: "navbar__brand navbar__mainLogo" %>
-    </div>
-    <% end %>
+      <nav class="navbar navbar-expand-md sticky-top">
+        <div class="collapse navbar-collapse justify-content-start" id="navbarsExampleDefault">
+            <%= link_to("Boco", root_path, {class: "h3 text-info mr-2"}) %>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <%= link_to("質問する", new_question_path, {class: "btn btn-info mr-2"}) %>
+            <ul class="nav nav-tabs">
+                <li class=" nav-item">
+                    <%= link_to("質問一覧", "#", {class: "nav-link text-info"}) %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to("気になっている質問", "#", {class: "nav-link text-info"}) %>
+                </li>
+                <li class="nav-item">
+                    <%= link_to("自分の質問", "#", {class: "nav-link text-info"}) %>
+                </li>
+            </ul>
+        </div>
+        <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-info mr-2 my-2 my-sm-0" type="submit">Search</button>
+            </form>
+            <%= link_to("マイページ", edit_user_registration_path, {class: "btn btn-info mr-2"}) %>
+        </div>
+    </nav>
 </header>

@@ -14,8 +14,7 @@
     <%= render 'layouts/header' %>
     <% else %>
     <%= render 'layouts/guest_header' %>
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <% end %>
     <%= yield %>
     <%= render 'layouts/footer' %>
 </body>
