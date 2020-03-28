@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
 class TopController < ApplicationController
-  def home; end
+  def home
+    @questions = Question.all
+  end
 end
