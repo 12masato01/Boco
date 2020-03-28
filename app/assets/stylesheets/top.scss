@@ -59,3 +59,12 @@ border-radius: 10px;
     color: $color-main;
   }
 }
+
+.question-container { 
+  margin-top: 2rem;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  width: 100%; 
+  border: 3px solid $color-back; 
+  border-radius: 10px;
+}
