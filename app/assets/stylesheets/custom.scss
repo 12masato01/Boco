@@ -3,6 +3,9 @@ $color-back: #DAE6E2;
 
 /*トップページの質問一覧*/
 .question-container {
+  .no-underline {
+    text-decoration:none ;
+  }
   ul {
   color: black;
   padding-right: 5%;
