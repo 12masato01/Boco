@@ -6,7 +6,7 @@
   <p>Bocoはあなたの身体の悩みを</p><p>専門家に気軽に相談できるサービスです</p>
 </div>
 <div class="top-link">
-  <%= link_to("まずは会員登録", new_user_registration_path, {class: "btn btn-info"}) %>
+  <%= link_to"まずは会員登録", new_user_registration_path, class: "btn btn-info" %>
 </div>
 </div>
 </div>
@@ -39,5 +39,6 @@
 <div class="index-question">
 <h1>みんなの質問</h1>
 <%= render @questions%>
+<p class="more-question"><%= link_to"もっと質問を見る", questions_path(@questions), method: :get %></p>
 </div>
 </div>

@@ -8,13 +8,13 @@
             <%= link_to("質問する", new_question_path, {class: "btn btn-info mr-2"}) %>
             <ul class="nav nav-tabs">
                 <li class=" nav-item">
-                    <%= link_to("質問一覧", "#", {class: "nav-link text-info"}) %>
+                    <%= link_to("質問一覧", questions_path(@questions), method: :get, class: "nav-link text-info") %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to("気になっている質問", "#", {class: "nav-link text-info"}) %>
+                    <%= link_to("気になっている質問", root_path, {class: "nav-link text-info"}) %>
                 </li>
                 <li class="nav-item">
-                    <%= link_to("自分の質問", "#", {class: "nav-link text-info"}) %>
+                    <%= link_to("自分の質問", root_path, {class: "nav-link text-info"}) %>
                 </li>
             </ul>
         </div>

@@ -2,6 +2,6 @@
 
 class TopController < ApplicationController
   def home
-    @questions = Question.all
+    @questions = Question.limit(3)
   end
 end

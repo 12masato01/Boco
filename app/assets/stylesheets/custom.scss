@@ -1,26 +1,2 @@
 $color-main: #148B9E;
 $color-back: #DAE6E2;
-
-/*トップページの質問一覧*/
-.question-container {
-  .no-underline {
-    text-decoration:none ;
-  }
-  ul {
-  color: black;
-  padding-right: 5%;
-  list-style-type: none!important;
-  li {
-    font-size: 1.5rem;
-  }
-  p {
-    opacity: 0.5;
-    text-align: right;
-  }
-  }
-  .fab {
-    padding-right:5px;
-    color: $color-main;
-    font-size: 2rem;  
-  }
-}

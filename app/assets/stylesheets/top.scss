@@ -63,6 +63,25 @@ border-radius: 10px;
   h1 {
     color: $color-main;
   }
+  .more-question{
+  margin-top: 2rem;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25%; 
+  text-align: center;
+  font-size: 1.5rem;
+  border: 3px solid $color-back; 
+  border-radius: 10px;
+    &:hover {
+      border: 3px solid $color-main; 
+    }
+  }
+  a {
+    text-decoration:none ;
+    color: black;
+  }
 }
 
 .question-container { 
@@ -74,5 +93,25 @@ border-radius: 10px;
   border-radius: 10px;
   &:hover {
     border: 3px solid $color-main; 
+  }
+  .no-underline {
+    text-decoration:none ;
+  }
+  ul {
+  color: black;
+  padding-right: 5%;
+  list-style-type: none!important;
+  li {
+    font-size: 1.5rem;
+  }
+  p {
+    opacity: 0.5;
+    text-align: right;
+  }
+  }
+  .fab {
+    padding-right:5px;
+    color: $color-main;
+    font-size: 2rem;  
   }
 }
