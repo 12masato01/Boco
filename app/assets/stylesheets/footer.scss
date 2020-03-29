@@ -3,9 +3,6 @@ $color-main: #148B9E;
 footer {
   background-color: #F8F9FA;
   height: 5rem;
-}
-
-.footer-content{
   .footer-icon {
     color: $color-main;
     font-size: 1.5rem;
@@ -15,14 +12,17 @@ footer {
     color: black;
     font-size: 1rem;
     text-decoration:none ;
+    line-height: 1em;
     &:hover {
       color: $color-main;
     }
   }
   .left {
     float: left;
+    padding-top: 1.5em;
   }
   .right {
+    padding-top: 2em;
     text-align: right; 
   }
 }
