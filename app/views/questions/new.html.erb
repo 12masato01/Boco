@@ -1,4 +1,6 @@
 <%= form_with model: @question do |f| %>
+<%= f.label :title  %>
+<%= f.text_field :title %>
 <%= f.label :content  %>
 <%= f.text_area :content %>
 <%= f.submit "質問する", class: "btn btn-primary" %>

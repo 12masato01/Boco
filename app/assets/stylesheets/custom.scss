@@ -4,5 +4,12 @@ $color-back: #DAE6E2;
 /*トップページの質問一覧*/
 .question {
   color: black;
-  font-size: 1.5rem;
+  padding-right: 5%;
+  li {
+    font-size: 1.5rem;
+  }
+  p {
+    opacity: 0.5;
+    text-align: right;
+  }
 }

@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content)
+    params.require(:question).permit(:title, :content)
   end
 
   def after_update_path_for(resource)
