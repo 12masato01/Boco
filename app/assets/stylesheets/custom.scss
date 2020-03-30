@@ -1,2 +1,51 @@
 $color-main: #148B9E;
 $color-back: #DAE6E2;
+
+/*ログイン画面*/
+#users_registrations_new {
+  height: 41rem;
+  padding-top: 2rem;
+  h2 {
+    text-align: center;
+    color: $color-main;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .field {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  input[type="email"] {
+    width: 50%;
+    height: 3rem;
+  }
+
+  input[type="password"] {
+    width: 50%;
+    height: 3rem;
+  }
+
+  .btn { 
+    width: 50%;
+  }
+
+  .btn-facebook {
+  margin-bottom: 2rem;
+  background-color: #3B5998;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  text-align: center;
+    a {
+    color: white;
+    }
+    .btn{
+    width: 100%;
+    }
+  }
+}
