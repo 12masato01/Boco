@@ -1,20 +1,14 @@
-<header>
+<header class="bg-light">
+  <div class="container">
     <nav class="navbar navbar-expand-md navbar-dark sticky-top bg-light">
         <div class="collapse navbar-collapse justify-content-start" id="navbarsExampleDefault">
             <%= link_to("Boco", root_path, {class: "navbar-brand text-info ml-2"}) %>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <%= link_to("質問する", new_question_path, {class: "btn btn-info mr-2"}) %>
             <ul class="nav nav-tabs">
                 <li class=" nav-item">
-                    <%= link_to("質問一覧", "#", {class: "nav-link text-info"}) %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to("気になっている質問", "#", {class: "nav-link text-info"}) %>
-                </li>
-                <li class="nav-item">
-                    <%= link_to("自分の質問", "#", {class: "nav-link text-info"}) %>
+                    <%= link_to("質問一覧", questions_path(@questions), {class: "nav-link text-info"}) %>
                 </li>
             </ul>
         </div>
@@ -23,7 +17,8 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-info mr-2 my-2 my-sm-0" type="submit">Search</button>
             </form>
-            <%= link_to("マイページ", "#", {class: "btn btn-info mr-2"}) %>
+            <%= link_to("ログイン", new_user_session_path, {class: "btn btn-info mr-2"}) %>
         </div>
     </nav>
+  <div>
 </header>
