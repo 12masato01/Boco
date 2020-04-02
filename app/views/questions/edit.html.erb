@@ -1,16 +1,16 @@
 <%= provide(:title, "質問の編集") %>
 
 <div class="container" id="users_registrations_new">
-<h2>質問の編集</h2>
-<%= form_with model: @question do |f| %>
-<div class="field">
-<%= f.text_field :title, placeholder: " 質問のタイトル"%>
-</div>
-<div class="field">
-<%= f.text_area :content, placeholder: " 質問の内容"%>
-</div>
-<div class="field">
-<%= f.submit "編集する", class: "btn btn-info" %>
-</div>
-<% end %>
+  <h2>質問の編集</h2>
+  <%= for_with model: @question do |f| %>
+  <div class="field">
+    <%= f.text_field :title, placeholder: " 質問のタイトル"%>
+  </div>
+  <div class="field">
+    <%= f.text_area :content, placeholder: " 質問の内容"%>
+  </div>
+  <div class="field">
+    <%= f.submit "編集する", class: "btn btn-info" %>
+  </div>
+  <% end %>
 </div>
