@@ -1,9 +1,15 @@
 $color-main: #148B9E;
 $color-back: #DAE6E2;
+$height: 42.5rem;
 
-/*会員登録・ログイン画面*/
+@mixin field {
+  width: 50%;
+  height: 3rem;
+}
+
+/*ユーザー関連・質問関連画面テンプレート*/
 #users_registrations_new {
-  height: 42.5rem;
+  height: $height;
   padding-top: 2rem;
   h2 {
     text-align: center;
@@ -21,20 +27,21 @@ $color-back: #DAE6E2;
   }
 
   input[type="text"] {
-    width: 50%;
-    height: 3rem;
+    @include field;
   }
 
   input[type="email"] {
-    width: 50%;
-    height: 3rem;
+    @include field;
   }
 
   input[type="password"] {
-    width: 50%;
-    height: 3rem;
+    @include field;
   }
-
+  
+  textarea {
+    width: 80%;
+    height: 15rem;
+  }
   .check_box {
     padding-top: 1rem;
     padding-left: 25%;
@@ -78,5 +85,53 @@ $color-back: #DAE6E2;
 
 /*質問一覧画面*/
 #questions {
-  height: 42.5rem;
+  height: $height;
+}
+
+/*質問詳細画面*/
+#question {
+  padding-top: 2rem;
+  height: $height;
+  h1{
+    padding-bottom: 2rem;
+    text-align: center;
+    color: $color-main;
+  }
+  .fab {
+    padding-right:5px;
+    color: $color-main;
+    font-size: 2rem;  
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .question-detail {
+    margin-top: 2rem;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    width: 100%; 
+    border: 3px solid $color-back; 
+    border-radius: 10px;
+    p {
+      font-size: 1rem;
+      padding-right: 3%;
+      padding-left: 3%;
+    }
+    .timestamp {
+      opacity: 0.5;
+      text-align: right;
+    }
+    .link {
+      text-align: right;
+      a {
+        text-decoration:none ;
+        color: black;
+        opacity: 0.5;
+        &:hover {
+          color: $color-main;
+          opacity: 1;
+        }
+      }
+    }
+  }
 }

@@ -1,8 +1,16 @@
-<%= form_with model: @question do |f| %>
-<%= f.label :title  %>
-<%= f.text_field :title %>
-<%= f.label :content  %>
-<%= f.text_area :content %>
-<%= f.submit "質問する", class: "btn btn-primary" %>
-<% end %>
+<%= provide(:title, "新規質問") %>
 
+<div class="container" id="users_registrations_new">
+<h2>新規質問</h2>
+<%= form_with model: @question do |f| %>
+<div class="field">
+<%= f.text_field :title, placeholder: " 質問のタイトル"%>
+</div>
+<div class="field">
+<%= f.text_area :content, placeholder: " 質問の内容"%>
+</div>
+<div class="field">
+<%= f.submit "質問する", class: "btn btn-info" %>
+</div>
+<% end %>
+</div>
