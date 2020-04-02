@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_user!, except: [:index, :show]
 
   def new
     @question = Question.new
@@ -51,7 +51,7 @@ class QuestionsController < ApplicationController
   private
 
   def question_params
-    params.require(:question).permit(:content)
+    params.require(:question).permit(:title, :content)
   end
 
   def after_update_path_for(resource)

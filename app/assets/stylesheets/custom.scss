@@ -1,0 +1,137 @@
+$color-main: #148B9E;
+$color-back: #DAE6E2;
+$height: 42.5rem;
+
+@mixin field {
+  width: 50%;
+  height: 3rem;
+}
+
+/*ユーザー関連・質問関連画面テンプレート*/
+#users_registrations_new {
+  height: $height;
+  padding-top: 2rem;
+  h2 {
+    text-align: center;
+    color: $color-main;
+  }
+
+  p {
+    text-align: center;
+  }
+
+  .field {
+    padding-top: 1rem;
+    text-align: center;
+    font-size: 1rem;
+  }
+
+  input[type="text"] {
+    @include field;
+  }
+
+  input[type="email"] {
+    @include field;
+  }
+
+  input[type="password"] {
+    @include field;
+  }
+  
+  textarea {
+    width: 80%;
+    height: 15rem;
+  }
+  .check_box {
+    padding-top: 1rem;
+    padding-left: 25%;
+    font-size: 1rem;
+  }
+
+  .btn { 
+    width: 50%;
+  }
+
+  .btn-facebook {
+    margin-bottom: 2rem;
+    background-color: #3B5998;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    a {
+      color: white;
+    }
+    .btn{
+      width: 100%;  
+    }
+  }
+
+  .btn-test {
+    margin-bottom: 2rem;
+    background-color: $color-main;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    text-align: center;
+    a {
+      color: white;
+    }
+    .btn{
+      width: 100%;  
+    }
+  }
+}
+
+/*質問一覧画面*/
+#questions {
+  height: $height;
+}
+
+/*質問詳細画面*/
+#question {
+  padding-top: 2rem;
+  height: $height;
+  h1{
+    padding-bottom: 2rem;
+    text-align: center;
+    color: $color-main;
+  }
+  .fab {
+    padding-right:5px;
+    color: $color-main;
+    font-size: 2rem;  
+  }
+  h2 {
+    font-size: 1.5rem;
+  }
+  .question-detail {
+    margin-top: 2rem;
+    padding-top: 1%;
+    padding-bottom: 0.5%;
+    width: 100%; 
+    border: 3px solid $color-back; 
+    border-radius: 10px;
+    p {
+      font-size: 1rem;
+      padding-right: 3%;
+      padding-left: 3%;
+    }
+    .timestamp {
+      opacity: 0.5;
+      text-align: right;
+    }
+    .link {
+      text-align: right;
+      a {
+        text-decoration:none ;
+        color: black;
+        opacity: 0.5;
+        &:hover {
+          color: $color-main;
+          opacity: 1;
+        }
+      }
+    }
+  }
+}

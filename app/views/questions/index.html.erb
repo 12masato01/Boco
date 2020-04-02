@@ -1,6 +1,6 @@
-<% @questions.each do |question| %>
-<%= link_to question_path(question) do %>
-<p><%= question.user.email %></p>
-<p><%= question.content %></p>
-<% end %>
-<% end %>
+<div class="container" id=questions>
+  <div class="index-question">
+    <h1>みんなの質問</h1>
+    <%= render @questions %>
+  </div>
+</div>

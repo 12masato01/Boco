@@ -1,0 +1,118 @@
+$color-main: #148B9E;
+$color-back: #DAE6E2;
+
+.jumbotron {
+  height: 700px;
+  width: 100%;
+  background-image: url("Boco.png");
+  background-size: cover;
+  h1 {
+    font-size: 4rem;
+    color: $color-main;
+  }
+  p {
+    font-size: 1.5rem;
+  }
+}
+
+.top-link {
+  position: relative;
+  text-align: center;
+  top: 20rem;
+  .btn {
+    text-align:center;
+    font-size: 2rem;
+    width: 80%;
+  }
+}
+
+.main-content {
+background-color: $color-back;
+border-radius: 10px;
+}
+
+.main-text {
+  h1 {
+    color: $color-main;
+    text-align:center;
+    padding-top: 3%;
+    padding-bottom: 3%;
+  }
+  p {
+    padding-left: 10%;
+    font-size: 1.5rem;
+  }
+}
+
+.row {
+  h2 { 
+    color: $color-main;
+    text-align:center;
+    padding-top: 10%;
+  }
+  p {
+    padding-right: 5%;
+    padding-left: 5%;
+    font-size: 1.5rem;
+  }
+}
+
+.index-question {
+  padding-top: 5%;
+  padding-bottom: 5%;
+  h1 {
+    color: $color-main;
+  }
+  .more-question{
+  margin-top: 2rem;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  margin-right: auto;
+  margin-left: auto;
+  width: 25%; 
+  text-align: center;
+  font-size: 1.5rem;
+  border: 3px solid $color-back; 
+  border-radius: 10px;
+    &:hover {
+      border: 3px solid $color-main; 
+    }
+  }
+  a {
+    text-decoration:none ;
+    color: black;
+  }
+}
+
+.question-container { 
+  margin-top: 2rem;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  width: 100%; 
+  border: 3px solid $color-back; 
+  border-radius: 10px;
+  &:hover {
+    border: 3px solid $color-main; 
+  }
+  .no-underline {
+    text-decoration:none ;
+  }
+  ul {
+  color: black;
+  padding-right: 5%;
+  list-style-type: none!important;
+
+  li {
+    font-size: 1.5rem;
+  }
+  p {
+    opacity: 0.5;
+    text-align: right;
+  }
+  }
+  .fab {
+    padding-right:5px;
+    color: $color-main;
+    font-size: 2rem;  
+  }
+}

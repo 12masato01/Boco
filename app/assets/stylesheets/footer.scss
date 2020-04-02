@@ -1,0 +1,28 @@
+$color-main: #148B9E;
+
+footer {
+  background-color: #F8F9FA;
+  height: 5rem;
+  .footer-icon {
+    color: $color-main;
+    font-size: 1.5rem;
+    text-decoration:none ;
+  }
+  .footer-link {
+    color: black;
+    font-size: 1rem;
+    text-decoration:none ;
+    line-height: 1em;
+    &:hover {
+      color: $color-main;
+    }
+  }
+  .left {
+    float: left;
+    padding-top: 1.5em;
+  }
+  .right {
+    padding-top: 2em;
+    text-align: right; 
+  }
+}

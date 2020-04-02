@@ -1,3 +1,44 @@
 <%= provide(:title, "Home") %>
-<h1>Top#home</h1>
-<p>Find me in app/views/top/home.html.erb</p>
+<div class="jumbotron">
+  <div class="container">
+    <div class="top-content">
+      <h1>健康をもっと身近に</h1>
+      <p>Bocoはあなたの身体の悩みを</p><p>専門家に気軽に相談できるサービスです</p>
+    </div>
+    <div class="top-link">
+      <%= link_to"まずは会員登録", new_user_registration_path, class: "btn btn-info" %>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="main-content">
+    <div class="main-text">
+      <h1>こんな悩みを解決</h1>
+      <p>●　なんだか身体が不調・・・。気軽にプロに相談したい。</p>
+      <p>●　肩こりや腰痛で病院にいくのは・・・</p>
+      <p>●　病院で運動をしましょうと言われたけど、詳しいやり方がわからない・・・。</p>
+    </div>
+    <div class="row">
+      <div class="col-md-4">
+        <h2>シンプルに</h2>
+        <p>使い方はシンプルで、手軽に使用できます。</p>
+      </div>
+      <div class="col-md-4">
+        <h2>気軽に</h2>
+        <p>ネットで相談できるので、ふとした時にいつでも相談可能。ちょっと腰が痛い・・・。最近肩がこる。そんな時は気軽に相談。 </p>
+      </div>
+      <div class="col-md-4">
+        <h2>密接に</h2>
+        <p>身体の専門家に何度でも相談。身体の専門家に特化しているからこそ、身体の悩みに対する解決策や対策までしっかりとサポート。</p>
+      </div>
+    </div>
+    <hr>
+  </div>
+</div>
+<div class="container">
+  <div class="index-question">
+    <h1>みんなの質問</h1>
+    <%= render @questions%>
+    <p class="more-question"><%= link_to"もっと質問を見る", questions_path(@questions), method: :get %></p>
+  </div>
+</div>
