@@ -20,6 +20,11 @@ $color-back: #DAE6E2;
     font-size: 1rem;
   }
 
+  input[type="text"] {
+    width: 50%;
+    height: 3rem;
+  }
+
   input[type="email"] {
     width: 50%;
     height: 3rem;
@@ -69,4 +74,9 @@ $color-back: #DAE6E2;
       width: 100%;  
     }
   }
+}
+
+/*質問一覧画面*/
+#questions {
+  height: 42.5rem;
 }
