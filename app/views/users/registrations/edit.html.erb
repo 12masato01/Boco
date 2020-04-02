@@ -29,7 +29,7 @@
     <br><br><br>
 
     <div class="field">
-    <%= button_to "ログアウト", destroy_user_session_path(resource_name), class: "btn btn-info" %>
+    <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-info", method: :delete %>
     </div>
 
     <div class="field">
