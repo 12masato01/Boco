@@ -25,16 +25,17 @@
     <div class="field">
       <%= f.submit "更新する", class: "btn btn-info" %>
     </div>
+    
+    <% end %> 
 
     <br><br><br>
 
     <div class="field">
-    <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-info", method: :delete %>
+      <%= link_to "ログアウト", destroy_user_session_path, class: "btn btn-info", method: :delete %>
     </div>
 
     <div class="field">
-    <%= button_to "アカウントを削除", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "本当に削除していいですか？" }, method: :delete %>
+      <%= button_to "アカウントを削除", registration_path(resource_name), class: "btn btn-danger", data: { confirm: "本当に削除していいですか？" }, method: :delete %>
     </div>
 
-  <% end %>
 </div>
