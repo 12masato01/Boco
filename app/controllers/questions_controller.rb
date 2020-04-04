@@ -32,6 +32,9 @@ class QuestionsController < ApplicationController
 
   def index
     @questions = Question.all
+    if params[:user_id] == current_user.id
+      @questions =  current_user.questions
+    end
   end
 
   def show

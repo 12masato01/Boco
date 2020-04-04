@@ -2,12 +2,12 @@
 
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
-    sessions:      'admins/sessions',
-    registrations: 'admins/registrations'
+    sessions:      "admins/sessions",
+    registrations: "admins/registrations"
   }
   devise_for :users, controllers: {
-    sessions:      'users/sessions',
-    registrations: 'users/registrations'
+    sessions:      "users/sessions",
+    registrations: "users/registrations",
   }
 
   devise_for :experts, controllers: {
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
-  root 'top#home'
+  root "top#home"
+  get  "/user_question", to: "top#user_question"
   resources :questions
+
 end
