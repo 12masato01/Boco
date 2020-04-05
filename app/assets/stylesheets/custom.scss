@@ -135,3 +135,30 @@ $height: 42.5rem;
     }
   }
 }
+
+/*フラッシュメッセージ*/
+.alert {
+  margin-bottom: 0;
+}
+
+.alert-notice {
+  color: #265724;
+  background-color: #D4EDDA;
+  }
+
+.alert-alert {
+  color: #A94442;
+  background-color: #F2DEDE;
+}
+
+/*エラーメッセージ*/
+#error_explanation {
+text-align: center;
+margin-left: 25%;
+margin-right: 25%;
+color: #A94442;
+background-color: #F2DEDE;
+  ul {
+    list-style: none;
+  }
+}
