@@ -12,13 +12,17 @@
 
 <body>
   <% if user_signed_in?%>
-    <%= render 'layouts/header' %>
+    <%= render "layouts/header" %>
   <% else %>
-    <%= render 'layouts/guest_header' %>
+    <%= render "layouts/guest_header" %>
   <% end %>
-  <%= render 'layouts/flash_messages' %>
+  <%= render "layouts/flash_messages" %>
   <%= yield %>
-  <%= render 'layouts/footer' %>
+  <% if user_signed_in?%>
+    <%= render "layouts/footer" %>
+  <% else %>
+    <%= render "layouts/guest_footer" %>
+  <% end %>
 </body>
 
 </html>
