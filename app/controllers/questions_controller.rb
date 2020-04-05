@@ -7,13 +7,12 @@ class QuestionsController < ApplicationController
 
   def create
     @question = current_user.questions.build(question_params)
-    if @question.present?
-      @question.save
-      redirect_to root_path
-      flash[:notice] = '投稿が保存されました'
+    if @question.save
+      flash[:success] = '投稿が保存されました'
+      redirect_to questions_path, method: :index
     else
-      redirect_to root_path
-      flash[:alert] = '投稿に失敗しました'
+      flash[:danger] = '投稿に失敗しました'
+      redirect_to new_question_path
     end
   end
 
@@ -26,15 +25,12 @@ class QuestionsController < ApplicationController
     if @question.update(question_params)
       redirect_to questions_path, method: :index
     else
-      render 'edit'
+      render "edit"
     end
   end
 
   def index
     @questions = Question.all
-    if params[:user_id] == current_user.id
-      @questions =  current_user.questions
-    end
   end
 
   def show
@@ -44,11 +40,11 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     if @question.user == current_user
-      flash[:notice] = '投稿が削除されました' if @question.destroy
+      flash[:success] = '投稿が削除されました' if @question.destroy
     else
-      flash[:alert] = '投稿の削除に失敗しました'
+      flash[:danger] = '投稿の削除に失敗しました'
     end
-    redirect_to root_path
+    redirect_to questions_path, method: :index
   end
 
   private
