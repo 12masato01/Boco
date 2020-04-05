@@ -1,9 +1,7 @@
 FactoryBot.define do
   factory :question do
-    sequence(:title) { |n| "test_name#{n}"}
-    sequence(:email) { |n| "test_email#{n}@example.com"}
-    password { "password" }
-    password_confirmation { "password" }
-  end
+    association :user
+    title { "腰が痛い" }
+    content {  "腰が痛いです。どうすれば良いでしょうか。"}
   end
 end

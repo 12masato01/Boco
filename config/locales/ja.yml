@@ -7,6 +7,12 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+        question: 質問
+    attributes:
+      question:
+        title: タイトル
+        content: コンテンツ
   date:
     abbr_day_names:
     - 日
@@ -205,9 +211,3 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
-  attributes:
-    user:
-      name: 名前
-      age: 年齢
-
-  site_title: サイトのタイトル
