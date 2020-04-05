@@ -8,10 +8,10 @@ class QuestionsController < ApplicationController
   def create
     @question = current_user.questions.build(question_params)
     if @question.save
-      flash[:success] = '投稿が保存されました'
+      flash[:success] = "投稿が保存されました"
       redirect_to questions_path, method: :index
     else
-      flash[:danger] = '投稿に失敗しました'
+      flash[:danger] = "投稿に失敗しました"
       redirect_to new_question_path
     end
   end
@@ -40,9 +40,9 @@ class QuestionsController < ApplicationController
   def destroy
     @question = Question.find(params[:id])
     if @question.user == current_user
-      flash[:success] = '投稿が削除されました' if @question.destroy
+      flash[:success] = "投稿が削除されました" if @question.destroy
     else
-      flash[:danger] = '投稿の削除に失敗しました'
+      flash[:danger] = "投稿の削除に失敗しました"
     end
     redirect_to questions_path, method: :index
   end
