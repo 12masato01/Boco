@@ -41,7 +41,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   protected
 
   def update_resource(resource, params)
-    resource.update_without_current_password(params)
+    resource.update_without_password(params)
   end
 
   # If you have extra params to permit, append them to the sanitizer.
