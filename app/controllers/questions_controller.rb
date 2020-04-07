@@ -1,5 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @question = Question.new
@@ -23,7 +24,8 @@ class QuestionsController < ApplicationController
   def update
     @question = Question.find(params[:id])
     if @question.update(question_params)
-      redirect_to questions_path, method: :index
+      flash[:success] = "投稿を更新しました" 
+       redirect_to @question
     else
       render "edit"
     end
@@ -55,5 +57,11 @@ class QuestionsController < ApplicationController
 
   def after_update_path_for(resource)
     question_path(resource)
+  end
+
+  def correct_user
+    @question = Question.find(params[:id])
+    redirect_to(root_url) unless @question.user == current_user
+    flash[:danger] = "権限がありません"
   end
 end

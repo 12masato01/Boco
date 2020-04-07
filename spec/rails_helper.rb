@@ -5,11 +5,8 @@ ENV['RAILS_ENV'] ||= 'test'
 require File.expand_path('../config/environment', __dir__)
 
 # Prevent database truncation if the environment is production
-if Rails.env.production?
-  abort('The Rails environment is running in production mode!')
-end
+abort('The Rails environment is running in production mode!') if Rails.env.production?
 require 'rspec/rails'
-require 'spec_helper'
 # Add additional requires below this line. Rails is not loaded until this point!
 require 'capybara/rspec'
 # Requires supporting ruby files with custom matchers and macros, etc, in
@@ -64,5 +61,6 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
   config.include FactoryBot::Syntax::Methods
-  config.include Devise::Test::IntegrationHelpers, type: :request
+  config.include Devise::Test::IntegrationHelpers, type: :system
+  config.include TestHelpers
 end
