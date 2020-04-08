@@ -1,0 +1,9 @@
+<div class="question-container">
+  <ul>
+    <li class="title"><i class="fab fa-quora">.</i><%= question.title %></li>
+    <p class="timestamp">
+      <%= question.created_at.strftime("%Y/%m/%d %H:%M") %>
+      <%= button_to "削除", admins_question_path(question), data: { confirm: "本当に削除していいですか？" }, method: :delete %>
+    </p>
+  </ul>
+</div>

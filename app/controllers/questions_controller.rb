@@ -1,6 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update,]
+  before_action :question_set, only: [:edit, :update, :show, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @question = Question.new
@@ -17,12 +18,9 @@ class QuestionsController < ApplicationController
     end
   end
 
-  def edit
-    @question = Question.find(params[:id])
-  end
+  def edit; end
 
   def update
-    @question = Question.find(params[:id])
     if @question.update(question_params)
       flash[:success] = "投稿を更新しました" 
        redirect_to @question
@@ -35,17 +33,10 @@ class QuestionsController < ApplicationController
     @questions = Question.all
   end
 
-  def show
-    @question = Question.find(params[:id])
-  end
+  def show; end
 
   def destroy
-    @question = Question.find(params[:id])
-    if current_user.admin? || current_user?(@question.user)
-      flash[:success] = "投稿が削除されました" if @question.destroy
-    else
-      flash[:danger] = "投稿の削除に失敗しました"
-    end
+    flash[:success] = "投稿が削除されました" if @question.destroy
     redirect_to questions_path, method: :index
   end
 
@@ -59,9 +50,14 @@ class QuestionsController < ApplicationController
     question_path(resource)
   end
 
-  def correct_user
+  def question_set
     @question = Question.find(params[:id])
-    redirect_to(root_url) unless @question.user == current_user
-    flash[:danger] = "権限がありません"
+  end
+
+  def correct_user
+    if !@question.user == current_user
+    redirect_to(root_url) 
+    flash[:danger] = "権限がありません" 
+    end
   end
 end
