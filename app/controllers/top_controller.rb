@@ -1,7 +1,6 @@
-# frozen_string_literal: true
-before_action :authenticate_admin!, only: [:user_index]
-
 class TopController < ApplicationController
+  before_action :authenticate_admin!, only: [:user_index]
+
   def home
     @questions = Question.limit(3)
   end
