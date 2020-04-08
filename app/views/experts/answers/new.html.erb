@@ -1,0 +1,16 @@
+<%= provide(:title, "新規回答") %>
+
+<div class="container" id="users_registrations_new">
+  <h2>新規回答</h2>
+  <%= form_with model: @answer do |f| %>
+    <div class="field">
+      <%= f.text_field :title, placeholder: " 回答のタイトル"%>
+    </div>
+    <div class="field">
+      <%= f.text_area :content, placeholder: " 回答の内容"%>
+    </div>
+    <div class="field">
+      <%= f.submit "回答する", class: "btn btn-info" %>
+    </div>
+  <% end %>
+</div>

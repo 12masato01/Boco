@@ -1,0 +1,14 @@
+<div class="container" id="question">
+  <h1><%= @answer.title %></h1>
+  <h2 class="title"><i class="fab fa-quora"></i><%= @answer.expert.name %></h2>
+  <div class="question-detail">
+    <p><%= simple_format(@answer.content) %></p>
+    <p class="timestamp"> <%= @answer.created_at.strftime("%Y/%m/%d %H:%M") %>
+    <p class="link">
+      <% if current_expert == @answer.expert %>
+        <%= link_to "編集", edit_expert_answer_path(@answer) %>
+        <%= link_to "削除", experts_answer_path(@answer), method: :delete %>
+      <% end %>
+    </p>
+  </div>
+</div>
