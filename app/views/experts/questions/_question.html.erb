@@ -1,0 +1,10 @@
+<div class="question-container">
+  <%= link_to experts_question_path(question), class:"no-underline", method: :get do%>
+  <ul>
+    <li class="title"><i class="fab fa-quora">.</i><%= question.title %></li>
+    <p class="timestamp">
+      <%= question.created_at.strftime("%Y/%m/%d %H:%M") %>
+    </p>
+  </ul>
+  <% end %>
+</div>
