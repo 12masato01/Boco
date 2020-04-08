@@ -14,6 +14,7 @@ Rails.application.routes.draw do
   }
   namespace :experts do
     resources :questions, only: %i(index show)
+    resources :answers
   end
 
   devise_for :users, controllers: {
