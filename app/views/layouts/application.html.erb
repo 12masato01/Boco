@@ -24,8 +24,8 @@
   <%= yield %>
   <% if user_signed_in?%>
     <%= render "layouts/footer" %>
-  <% elsif admin_signed_in? %>
-    <%= render "layouts/admin_footer" %>
+  <% elsif admin_signed_in? || expert_signed_in? %>
+    <%= render "layouts/admin_expert_footer" %>
   <% else %>
     <%= render "layouts/guest_footer" %>
   <% end %>
