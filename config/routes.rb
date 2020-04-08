@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root "top#home"
+
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
   }
@@ -21,12 +23,11 @@ Rails.application.routes.draw do
     sessions:      "users/sessions",
     registrations: "users/registrations",
   }
+  namespace :users do
+    resources :questions
+    get  "/user_question", to: "questions#user_question"
+  end
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
-
-  root "top#home"
-  get  "/user_question", to: "top#user_question"
-  resources :questions
-
 end

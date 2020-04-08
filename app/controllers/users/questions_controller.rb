@@ -1,4 +1,4 @@
-class QuestionsController < ApplicationController
+class Users::QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :question_set, only: [:edit, :update, :show, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]
@@ -11,10 +11,10 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = "投稿が保存されました"
-      redirect_to questions_path, method: :index
+      redirect_to users_questions_path, method: :index
     else
       flash[:danger] = "投稿に失敗しました"
-      redirect_to new_question_path
+      redirect_to new_users_question_path
     end
   end
 
@@ -37,7 +37,11 @@ class QuestionsController < ApplicationController
 
   def destroy
     flash[:success] = "投稿が削除されました" if @question.destroy
-    redirect_to questions_path, method: :index
+    redirect_to users_questions_path, method: :index
+  end
+
+  def user_question
+    @questions = current_user.questions
   end
 
   private
@@ -47,7 +51,7 @@ class QuestionsController < ApplicationController
   end
 
   def after_update_path_for(resource)
-    question_path(resource)
+    users_question_path(resource)
   end
 
   def question_set

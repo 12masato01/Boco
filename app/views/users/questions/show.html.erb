@@ -6,8 +6,8 @@
     <p class="timestamp"> <%= @question.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
       <% if current_user == @question.user %>
-        <%= link_to "編集", edit_question_path(@question) %>
-        <%= link_to "削除", question_path(@question), method: :delete %>
+        <%= link_to "編集", edit_user_question_path(@question) %>
+        <%= link_to "削除", user_question_path(@question), method: :delete %>
       <% end %>
     </p>
   </div>
