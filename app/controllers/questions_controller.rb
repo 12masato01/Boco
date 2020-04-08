@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update,]
 
   def new
     @question = Question.new
@@ -41,7 +41,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
-    if @question.user == current_user
+    if current_user.admin? || current_user?(@question.user)
       flash[:success] = "投稿が削除されました" if @question.destroy
     else
       flash[:danger] = "投稿の削除に失敗しました"

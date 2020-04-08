@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+before_action :authenticate_admin!, only: [:user_index]
 
 class TopController < ApplicationController
   def home
