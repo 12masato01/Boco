@@ -1,4 +1,4 @@
-Experts::AnswersController < ApplicationController
+class Experts::AnswersController < ApplicationController
   before_action :authenticate_expert! 
   before_action :answer_set, only: [:edit, :update, :show, :destroy]
   before_action :correct_expert, only: [:edit, :update, :destroy]
@@ -60,3 +60,4 @@ Experts::AnswersController < ApplicationController
     flash[:danger] = "権限がありません" 
     end
   end
+end
