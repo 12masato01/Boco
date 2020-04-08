@@ -8,4 +8,8 @@ class TopController < ApplicationController
   def user_question
     @questions = current_user.questions
   end
+
+  def user_index
+    @users = User.all
+  end
 end

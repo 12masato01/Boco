@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 
   root "top#home"
   get  "/user_question", to: "top#user_question"
+  get  "/user_index", to: "top#user_index"
   resources :questions
 
 end
