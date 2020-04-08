@@ -11,8 +11,12 @@
 </head>
 
 <body>
-  <% if user_signed_in?%>
+  <% if user_signed_in? %>
     <%= render "layouts/header" %>
+  <% elsif admin_signed_in? %>
+    <%= render "layouts/admin_header"%>
+  <% elsif expert_signed_in? %>
+    <%= render "layouts/expert_header"%>
   <% else %>
     <%= render "layouts/guest_header" %>
   <% end %>
@@ -20,6 +24,8 @@
   <%= yield %>
   <% if user_signed_in?%>
     <%= render "layouts/footer" %>
+  <% elsif admin_signed_in? %>
+    <%= render "layouts/admin_footer" %>
   <% else %>
     <%= render "layouts/guest_footer" %>
   <% end %>
