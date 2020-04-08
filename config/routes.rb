@@ -3,8 +3,12 @@
 Rails.application.routes.draw do
   devise_for :admins, controllers: {
     sessions:      "admins/sessions",
-    registrations: "admins/registrations"
   }
+  namespace :admins do
+    resources :users, only: %i(index destroy)
+    resources :questions, only: %i(index destroy)
+  end
+
   devise_for :users, controllers: {
     sessions:      "users/sessions",
     registrations: "users/registrations",
@@ -21,7 +25,6 @@ Rails.application.routes.draw do
 
   root "top#home"
   get  "/user_question", to: "top#user_question"
-  get  "/user_index", to: "top#user_index"
   resources :questions
 
 end
