@@ -1,0 +1,10 @@
+<div class="question-container">
+  <ul>
+    <li class="title"></i><%= user.name %></li>
+    <li class="title"></i><%= user.email %></li>
+    <p class="timestamp">
+      <%= user.created_at.strftime("%Y/%m/%d %H:%M") %>
+      <%= button_to "アカウントを削除", admins_user_path(user), data: { confirm: "本当に削除していいですか？" }, method: :delete %>
+    </p>
+  </ul>
+</div>
