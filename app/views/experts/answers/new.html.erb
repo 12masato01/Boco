@@ -2,7 +2,7 @@
 
 <div class="container" id="users_registrations_new">
   <h2>新規回答</h2>
-  <%= form_with model: @expert_answer do |f| %>
+  <%= form_with(model: [@expert, @answer], url: experts_answers_path) do |f| %>
     <div class="field">
       <%= f.text_field :tsitle, placeholder: " 回答のタイトル"%>
     </div>

@@ -23,7 +23,7 @@ class Experts::AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = "投稿を更新しました" 
-       redirect_to @answer
+       redirect_to experts_answers_path
     else
       render "edit"
     end
