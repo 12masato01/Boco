@@ -40,7 +40,7 @@
 <div class="container">
   <div class="index-question">
     <h1>みんなの質問</h1>
-    <%= render @questions%>
+    <%= render partial: "users/questions/question", collection: @questions%>
     <% if !admin_signed_in? %>
     <p class="more-question"><%= link_to"もっと質問を見る", users_questions_path(@questions), method: :get %></p>
     <% end %>

@@ -2,7 +2,7 @@
 
 <div class="container" id="users_registrations_new">
   <h2>質問の編集</h2>
-  <%= form_with model: @question do |f| %>
+  <%= form_with(model: [@user, @question], url: users_question_path) do |f| %>
   <div class="field">
     <%= f.text_field :title, placeholder: " 質問のタイトル"%>
   </div>

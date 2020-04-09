@@ -5,10 +5,10 @@
       © 2020. Boco All Rights Reserved.
     </p>
     <p class="right">
-      <%=link_to"質問する", new__usersquestion_path, class: "footer-link" %>
+      <%=link_to"質問する", new_users_question_path, class: "footer-link" %>
       ｜<%=link_to"質問一覧", users_questions_path(@questions), method: :get, class: "footer-link" %>
       ｜<%=link_to"気になっている質問", root_path, class: "footer-link" %>
-      ｜<%=link_to"自分の質問", users_user_questions_path, class: "footer-link" %>
+      ｜<%=link_to"自分の質問", users_user_question_path, class: "footer-link" %>
       ｜<%=link_to"マイページ", edit_user_registration_path, class: "footer-link" %>
     </p>
   </div>

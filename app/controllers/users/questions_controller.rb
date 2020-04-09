@@ -11,7 +11,7 @@ class Users::QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = "投稿が保存されました"
-      redirect_to users_questions_path, method: :index
+      redirect_to users_questions_path, method: :get
     else
       flash[:danger] = "投稿に失敗しました"
       redirect_to new_users_question_path
@@ -22,8 +22,8 @@ class Users::QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      flash[:success] = "投稿を更新しました" 
-       redirect_to @question
+       flash[:success] = "投稿を更新しました" 
+       redirect_to users_question_path method: :get
     else
       render "edit"
     end
