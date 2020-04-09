@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_08_094413) do
+ActiveRecord::Schema.define(version: 2020_04_09_032636) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -22,7 +22,6 @@ ActiveRecord::Schema.define(version: 2020_04_08_094413) do
   end
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "title"
     t.text "content"
     t.bigint "expert_id"
     t.bigint "question_id"
