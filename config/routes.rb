@@ -16,8 +16,9 @@ Rails.application.routes.draw do
   }
   namespace :experts do
     resources :questions, only: %i(index show)
-    resources :answers
+    resources :answers, except: :new
   end
+  get  "experts/answers/new/:id", to: "experts/answers#new", as: "new_experts_answer"
 
   devise_for :users, controllers: {
     sessions:      "users/sessions",

@@ -4,6 +4,7 @@ class Experts::AnswersController < ApplicationController
   before_action :correct_expert, only: [:edit, :update, :destroy]
 
   def new
+    @question = Question.find(params[:id])
     @answer = Answer.new
   end
 
@@ -11,10 +12,10 @@ class Experts::AnswersController < ApplicationController
     @answer = current_expert.answers.build(answer_params)
     if @answer.save
       flash[:success] = "投稿が保存されました"
-      redirect_to @answer
+      redirect_back(fallback_location: root_path)
     else
       flash[:danger] = "投稿に失敗しました"
-      redirect_to experts_answers_path, method: :get
+      render "new"
     end
   end
 
