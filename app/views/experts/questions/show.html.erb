@@ -5,7 +5,7 @@
     <p><%= simple_format(@question.content) %></p>
     <p class="timestamp"> <%= @question.created_at.strftime("%Y/%m/%d %H:%M") %></p>
     <p class="link">
-      <%= link_to "回答する", new_experts_answer_path(@question) %>
+      <%= link_to "回答する", new_experts_answer_path(@question)  %>
     </p>
   </div>
 </div>

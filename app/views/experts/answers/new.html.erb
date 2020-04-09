@@ -4,9 +4,6 @@
   <h2>新規回答</h2>
   <%= form_with(model: [@expert, @answer], url: experts_answers_path) do |f| %>
     <div class="field">
-      <%= f.text_field :tsitle, placeholder: " 回答のタイトル"%>
-    </div>
-    <div class="field">
       <%= f.text_area :content, placeholder: " 回答の内容"%>
     </div>
     <div class="field">

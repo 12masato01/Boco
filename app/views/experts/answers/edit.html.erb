@@ -4,9 +4,6 @@
   <h2>回答の編集</h2>
   <%= form_with(model:[@expert, @answer], url: experts_answer_path)do |f| %>
   <div class="field">
-    <%= f.text_field :title, placeholder: " 回答のタイトル"%>
-  </div>
-  <div class="field">
     <%= f.text_area :content, placeholder: " 回答の内容"%>
   </div>
   <div class="field">
