@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_expert! 
+  before_action :authenticate_user!, except: [:index, :show]
   before_action :answer_set, only: [:edit, :update, :show, :destroy]
-  before_action :correct_expert, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @question = Question.find(params[:id])
@@ -12,9 +12,9 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(answer_params)
     if @answer.save
       flash[:success] = "投稿が保存されました"
-      redirect_back(fallback_location: root_path)
+      redirect_to questions_path method: :get
     else
-      flash[:danger] = "投稿に失敗しました"
+      flash.now[:danger] = "投稿に失敗しました"
       render "new"
     end
   end
@@ -24,9 +24,9 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = "投稿を更新しました" 
-      redirect_back(fallback_location: root_path)
+      redirect_to questions_path method: :get
     else
-      flash[:danger] = "投稿に失敗しました"
+      flash.now[:danger] = "投稿に失敗しました"
       render "edit"
     end
   end
@@ -39,14 +39,13 @@ class AnswersController < ApplicationController
 
   def destroy
     flash[:success] = "投稿が削除されました" if @answer.destroy
-    redirect_back(fallback_location: root_path)
-    else
+    redirect_to questions_path method: :get
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:title, :content)
+    params.require(:answer).permit(:title, :content, :user_id, :question_id)
   end
 
   def after_update_path_for(resource)
