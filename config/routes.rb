@@ -15,10 +15,12 @@ Rails.application.routes.draw do
     sessions:      "users/sessions",
     registrations: "users/registrations",
   }
-  resources :questions
-  resources :answers
-  get  "/user_question", to: "questions#user_question"
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
+
+  resources :questions
+  get  "/user_question", to: "questions#user_question"
+  get  "/answers/:id", to: "answers#new", as: :new_answer
+  resources :answers, except: %i(new)
 end
