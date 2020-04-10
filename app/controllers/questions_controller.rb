@@ -11,10 +11,10 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = "投稿が保存されました"
-      redirect_to users_questions_path, method: :get
+      redirect_to questions_path, method: :get
     else
       flash[:danger] = "投稿に失敗しました"
-      redirect_to new_users_question_path
+      render "new"
     end
   end
 
@@ -25,6 +25,7 @@ class QuestionsController < ApplicationController
        flash[:success] = "投稿を更新しました" 
        redirect_to users_question_path method: :get
     else
+      flash[:danger] = "投稿の更新に失敗しました"
       render "edit"
     end
   end
@@ -37,7 +38,7 @@ class QuestionsController < ApplicationController
 
   def destroy
     flash[:success] = "投稿が削除されました" if @question.destroy
-    redirect_to users_questions_path, method: :index
+    redirect_back(fallback_location: root_path)
   end
 
   def user_question

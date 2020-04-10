@@ -24,8 +24,9 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = "投稿を更新しました" 
-       redirect_to experts_answers_path
+      redirect_back(fallback_location: root_path)
     else
+      flash[:danger] = "投稿に失敗しました"
       render "edit"
     end
   end
@@ -38,7 +39,8 @@ class AnswersController < ApplicationController
 
   def destroy
     flash[:success] = "投稿が削除されました" if @answer.destroy
-    redirect_to experts_answers_path, method: :get
+    redirect_back(fallback_location: root_path)
+    else
   end
 
   private
@@ -55,8 +57,8 @@ class AnswersController < ApplicationController
     @answer = Answer.find(params[:id])
   end
 
-  def correct_expert
-    if !@answer.expert == current_expert
+  def correct_user
+    if !@answer.user == current_user
     redirect_to(root_url) 
     flash[:danger] = "権限がありません" 
     end
