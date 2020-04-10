@@ -3,6 +3,8 @@
 <div class="container" id="users_registrations_new">
   <h2>新規回答</h2>
   <%= form_with model:@answer do |f| %>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :question_id, value: @question.id %>
     <div class="field">
       <%= f.text_area :content, placeholder: " 回答の内容"%>
     </div>

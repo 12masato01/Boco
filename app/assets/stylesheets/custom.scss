@@ -91,7 +91,6 @@ $height: 42.5rem;
 /*質問詳細画面*/
 #question {
   padding-top: 2rem;
-  height: $height;
   h1{
     padding-bottom: 2rem;
     text-align: center;
@@ -101,6 +100,11 @@ $height: 42.5rem;
     padding-right:5px;
     color: $color-main;
     font-size: 2rem;  
+  }
+  .fas {
+    padding-right:5px;
+    color: #FF7D8C;
+    font-size: 2rem; 
   }
   h2 {
     font-size: 1.5rem;
@@ -114,15 +118,17 @@ $height: 42.5rem;
     border: 3px solid $color-back; 
     border-radius: 10px;
     p {
-      font-size: 1rem;
+      font-size: 1.2rem;
       padding-right: 3%;
       padding-left: 3%;
     }
     .timestamp {
+      font-size: 1rem;
       opacity: 0.5;
       text-align: right;
     }
     .link {
+      font-size: 1rem;
       text-align: right;
       a {
         text-decoration:none ;
