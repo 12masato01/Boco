@@ -11,10 +11,10 @@ class QuestionsController < ApplicationController
     @question = current_user.questions.build(question_params)
     if @question.save
       flash[:success] = "投稿が保存されました"
-      redirect_to questions_path, method: :index
+      redirect_to questions_path, method: :get
     else
-      flash[:danger] = "投稿に失敗しました"
-      redirect_to new_question_path
+      flash.now[:danger] = "投稿に失敗しました"
+      render "new"
     end
   end
 
@@ -22,9 +22,10 @@ class QuestionsController < ApplicationController
 
   def update
     if @question.update(question_params)
-      flash[:success] = "投稿を更新しました" 
-       redirect_to @question
+       flash[:success] = "投稿を更新しました" 
+       redirect_to questions_path method: :get
     else
+      flash.now[:danger] = "投稿の更新に失敗しました"
       render "edit"
     end
   end
@@ -37,7 +38,11 @@ class QuestionsController < ApplicationController
 
   def destroy
     flash[:success] = "投稿が削除されました" if @question.destroy
-    redirect_to questions_path, method: :index
+    redirect_to questions_path method: :get
+  end
+
+  def user_question
+    @questions = current_user.questions
   end
 
   private
@@ -47,7 +52,7 @@ class QuestionsController < ApplicationController
   end
 
   def after_update_path_for(resource)
-    question_path(resource)
+    users_question_path(resource)
   end
 
   def question_set

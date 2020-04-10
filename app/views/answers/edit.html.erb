@@ -1,0 +1,13 @@
+<%= provide(:title, "回答の編集") %>
+
+<div class="container" id="users_registrations_new">
+  <h2>回答の編集</h2>
+  <%= form_with model:@answerdo do |f| %>
+  <div class="field">
+    <%= f.text_area :content, placeholder: " 回答の内容"%>
+  </div>
+  <div class="field">
+    <%= f.submit "編集する", class: "btn btn-info" %>
+  </div>
+  <% end %>
+</div>

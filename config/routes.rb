@@ -1,19 +1,14 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
+  root "top#home"
+
   devise_for :admins, controllers: {
     sessions: "admins/sessions",
   }
   namespace :admins do
     resources :users, only: %i(index destroy)
     resources :questions, only: %i(index destroy)
-  end
-
-  devise_for :experts, controllers: {
-    sessions: "experts/sessions",
-  }
-  namespace :experts do
-    resources :questions, only: %i(index show)
   end
 
   devise_for :users, controllers: {
@@ -24,8 +19,8 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
-  root "top#home"
-  get  "/user_question", to: "top#user_question"
   resources :questions
-
+  get  "/user_question", to: "questions#user_question"
+  get  "/answers/:id", to: "answers#new", as: :new_answer
+  resources :answers, except: %i(new)
 end

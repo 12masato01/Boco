@@ -8,7 +8,7 @@
       <%=link_to"質問する", new_question_path, class: "footer-link" %>
       ｜<%=link_to"質問一覧", questions_path(@questions), method: :get, class: "footer-link" %>
       ｜<%=link_to"気になっている質問", root_path, class: "footer-link" %>
-      ｜<%=link_to"自分の質問", root_path, class: "footer-link" %>
+      ｜<%=link_to"自分の質問", user_question_path, class: "footer-link" %>
       ｜<%=link_to"マイページ", edit_user_registration_path, class: "footer-link" %>
     </p>
   </div>
