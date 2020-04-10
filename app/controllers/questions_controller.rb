@@ -1,4 +1,4 @@
-class Users::QuestionsController < ApplicationController
+class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :question_set, only: [:edit, :update, :show, :destroy]
   before_action :correct_user, only: [:edit, :update, :destroy]

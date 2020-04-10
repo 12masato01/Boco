@@ -1,4 +1,4 @@
-class Experts::AnswersController < ApplicationController
+class AnswersController < ApplicationController
   before_action :authenticate_expert! 
   before_action :answer_set, only: [:edit, :update, :show, :destroy]
   before_action :correct_expert, only: [:edit, :update, :destroy]
@@ -9,7 +9,7 @@ class Experts::AnswersController < ApplicationController
   end
 
   def create
-    @answer = current_expert.answers.build(answer_params)
+    @answer = current_user.answers.build(answer_params)
     if @answer.save
       flash[:success] = "投稿が保存されました"
       redirect_back(fallback_location: root_path)
