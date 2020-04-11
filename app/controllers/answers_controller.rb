@@ -13,7 +13,8 @@ class AnswersController < ApplicationController
     if @answer.save
       flash[:success] = "投稿が保存されました"
       redirect_to questions_path method: :get
-    else
+    else    
+      @question = Question.find(params[:id])
       render "new"
     end
   end
