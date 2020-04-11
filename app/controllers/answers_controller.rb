@@ -45,7 +45,7 @@ class AnswersController < ApplicationController
   private
 
   def answer_params
-    params.require(:answer).permit(:title, :content, :user_id, :question_id)
+    params.require(:answer).permit(:title, :content, :question_id)
   end
 
   def after_update_path_for(resource)
