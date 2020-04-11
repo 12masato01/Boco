@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :answer_set, only: [:edit, :update, :show, :destroy]
-  before_action :correct_user, only: [:edit, :update]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
   def new
     @question = Question.find(params[:id])
@@ -36,8 +36,7 @@ class AnswersController < ApplicationController
   def show; end
 
   def destroy
-    if current_user.admin? || current_user?(@answer.user)
-      @answer.destroy
+    if @answer.destroy
       flash[:success] = "質問が削除されました" 
       redirect_to questions_path method: :get
     else
