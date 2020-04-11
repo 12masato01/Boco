@@ -3,7 +3,7 @@
 </div>  
 
 <div id="comment-form">  
-  <%= form_with(model: [commentable, comment], remote: true) do |f| %>
+  <%= form_with(model: [commentable, comment], local: true) do |f| %>
   <%= render "shared/error_message", model: f.object%>
   <%= f.hidden_field :user_id, value: current_user.id %>
   <div class="field">

@@ -2,7 +2,7 @@
 
 <div class="container" id="users_registrations_new">
   <h2>新規回答</h2>
-  <%= form_with model:@answer do |f| %>
+  <%= form_with model:@answer , local: true do |f| %>
   <%= render "shared/error_message", model: f.object%>
   <%= f.hidden_field :question_id, value: @question.id %>
     <div class="field">
