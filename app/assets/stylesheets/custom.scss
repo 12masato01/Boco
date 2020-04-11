@@ -111,7 +111,7 @@ $height: 42.5rem;
   }
   .question-detail {
     margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
     padding-top: 1%;
     padding-bottom: 0.5%;
     width: 100%; 
@@ -151,7 +151,7 @@ $height: 42.5rem;
 .alert-notice {
   color: #265724;
   background-color: #D4EDDA;
-  }
+}
 
 .alert-alert {
   color: #A94442;
@@ -167,5 +167,45 @@ color: #A94442;
 background-color: #F2DEDE;
   ul {
     list-style: none;
+  }
+}
+
+/*コメント*/
+.comment-main {
+  margin-bottom: 1rem;
+  
+  p {
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+  .timestamp {
+      opacity: 0.5;
+      text-align: right;
+    }
+  a {
+    text-decoration:none ;
+    color: black;
+    &:hover {
+      color: $color-main;
+      opacity: 1;
+    }
+  }
+}
+
+#comment {
+  border-left: 2px solid $color-back; 
+  border-right: 2px solid $color-back;
+}
+
+#comment-form {
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2rem;
+  .field {
+    text-align: center;
+    font-size: 1rem;
+  }
+   textarea {
+    width: 95%;
   }
 }
