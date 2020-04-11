@@ -23,11 +23,12 @@ RSpec.describe "Questions", type: :system do
     end
 
     context "フォームの入力が無い時" do
-      it "投稿に失敗し、フラッシュメッセージを表示する" do
+      it "投稿に失敗し、エラーメッセージを表示する" do
         fill_in "question[title]", with: ""
         fill_in "question[content]", with: ""
         click_button "質問する"
-        expect(page).to have_content "投稿に失敗しました"
+        expect(page).to have_content "タイトルを入力してください"
+        expect(page).to have_content "コンテンツを入力してください"
         expect(current_path).to eq new_question_path 
       end
     end
