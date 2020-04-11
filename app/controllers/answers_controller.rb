@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :answer_set, only: [:edit, :update, :show, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @question = Question.find(params[:id])
@@ -14,7 +14,6 @@ class AnswersController < ApplicationController
       flash[:success] = "投稿が保存されました"
       redirect_to questions_path method: :get
     else
-      flash.now[:danger] = "投稿に失敗しました"
       render "new"
     end
   end
@@ -26,7 +25,6 @@ class AnswersController < ApplicationController
       flash[:success] = "投稿を更新しました" 
       redirect_to questions_path method: :get
     else
-      flash.now[:danger] = "投稿に失敗しました"
       render "edit"
     end
   end
@@ -38,8 +36,14 @@ class AnswersController < ApplicationController
   def show; end
 
   def destroy
-    flash[:success] = "投稿が削除されました" if @answer.destroy
-    redirect_to questions_path method: :get
+    if current_user.admin? || current_user?(@answer.user)
+      @answer.destroy
+      flash[:success] = "質問が削除されました" 
+      redirect_to questions_path method: :get
+    else
+      flash[:danger] = "権限がありません"
+      redirect_to root_url
+    end
   end
 
   private

@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :question_set, only: [:edit, :update, :show, :destroy]
-  before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update]
 
   def new
     @question = Question.new
@@ -36,11 +36,13 @@ class QuestionsController < ApplicationController
 
   def destroy
     if current_user.admin? || current_user?(@question.user)
+      @question.destroy
       flash[:success] = "投稿が削除されました" 
       redirect_to questions_path method: :get
     else
       flash[:danger] = "権限がありません"
       redirect_to root_url
+    end
   end
 
   def user_question
