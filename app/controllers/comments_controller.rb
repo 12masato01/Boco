@@ -3,15 +3,13 @@ class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]  
 
   def create  
-    @comment = @commentable.comments.build(comments_params)  
-    @comment.user = current_user  
-
+    @comment = @commentable.comments.build(comments_params)
     if @comment.save  
       respond_to do |format|  
         format.js { flash.now[:success] = t("flash.new") }  
       end  
     else  
-      @commentable.comments.destroy(@comment)  
+      @commentable.comments.desroy(@comment)  
       respond_to do |format|  
         format.js { flash.now[:danger] = @comment.errors.full_messages[0] }  
       end  
@@ -34,6 +32,6 @@ class CommentsController < ApplicationController
     end  
 
     def comments_params  
-      params.require(:comment).permit(:content)  
+      params.require(:comment).permit(:content, :user_id)  
     end  
 end  
