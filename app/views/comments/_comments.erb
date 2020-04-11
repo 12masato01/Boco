@@ -4,7 +4,7 @@
 <div id="flash_messages"></div>  
 <div>   
   <div id="comment-form">  
-    <%= form_with(model: [commentable, comment]) do |f| %> 
+    <%= form_with(model: [commentable, comment], remote: true) do |f| %> 
     <%= f.hidden_field :user_id, value: current_user.id %>
     <div class="field">
     <%= f.text_area :content, placeholder: " コメント"%>

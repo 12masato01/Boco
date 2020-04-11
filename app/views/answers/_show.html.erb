@@ -1,3 +1,4 @@
+<div class="container" id="question">
 <% @question.answers.each do |answer| %>
 <h2 class="title"><i class="fas fa-font"></i><%= user_info(answer.user_id).name %></h2>
   <div class="question-detail">
@@ -10,5 +11,6 @@
       <% end %>
     </p>
   </div>
-<%= render "comments/comments", commentable: @question, comment: current_user.comments.build %>
+<%= render 'comments/comments', commentable: @answer, comment: current_user.comments.build %>  
 <% end %>
+</div>
