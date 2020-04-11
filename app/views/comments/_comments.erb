@@ -1,17 +1,16 @@
 <div class="comment-main"> 
     <%= render "comments/comment", comments: commentable.comments %>  
 </div>  
-<div id="flash_messages"></div>  
-<div>   
-  <div id="comment-form">  
-    <%= form_with(model: [commentable, comment], remote: true) do |f| %> 
-    <%= f.hidden_field :user_id, value: current_user.id %>
-    <div class="field">
-    <%= f.text_area :content, placeholder: " コメント"%>
-    </div>
-    <div class="field">
-    <%= f.submit "コメントをする", class: "btn btn-info" %>  
-    </div>
-    <% end %> 
-  </div>  
-</div> 
+
+<div id="comment-form">  
+  <%= form_with(model: [commentable, comment], remote: true) do |f| %>
+  <%= render "shared/error_message", model: f.object%>
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <div class="field">
+  <%= f.text_area :content, placeholder: " コメント"%>
+  </div>
+  <div class="field">
+  <%= f.submit "コメントをする", class: "btn btn-info" %>  
+  </div>
+  <% end %> 
+</div>  
