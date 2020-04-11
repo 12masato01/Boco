@@ -1,29 +1,23 @@
 class CommentsController < ApplicationController  
-  prepend_before_action :set_commentable, only: %i[create edit update destroy]  
-  before_action :set_comment, only: %i[edit update destroy]  
+  prepend_before_action :set_commentable, only: %i(create destroy)
+  before_action :set_comment, only: %i(destroy)  
 
   def create  
     @comment = @commentable.comments.build(comments_params)
     if @comment.save  
-      respond_to do |format|  
-        format.js { flash.now[:success] = t("flash.new") }  
-      end  
-    else  
-      @commentable.comments.desroy(@comment)  
-      respond_to do |format|  
-        format.js { flash.now[:danger] = @comment.errors.full_messages[0] }  
-      end  
+      flash[:success] = "コメントが投稿されました"  
+      redirect_back(fallback_location: root_path)
+    else
+      flash.now[:danger] = "コメントに失敗しました"
+      render "new"
     end  
-    render :index  
   end  
 
   def destroy  
     if @comment.destroy  
-      respond_to do |format|  
-        format.js { flash.now[:success] = t("flash.destroy") }  
-      end  
+      flash[:success] = "コメントが削除されました"
+      redirect_back(fallback_location: root_path)
     end  
-    render :index  
   end  
 
   private  
