@@ -14,7 +14,6 @@ class AnswersController < ApplicationController
       flash[:success] = "投稿が保存されました"
       redirect_to questions_path method: :get
     else
-      flash.now[:danger] = "投稿に失敗しました"
       render "new"
     end
   end
@@ -26,7 +25,6 @@ class AnswersController < ApplicationController
       flash[:success] = "投稿を更新しました" 
       redirect_to questions_path method: :get
     else
-      flash.now[:danger] = "投稿に失敗しました"
       render "edit"
     end
   end
@@ -38,14 +36,19 @@ class AnswersController < ApplicationController
   def show; end
 
   def destroy
-    flash[:success] = "投稿が削除されました" if @answer.destroy
-    redirect_to questions_path method: :get
+    if @answer.destroy
+      flash[:success] = "質問が削除されました" 
+      redirect_to questions_path method: :get
+    else
+      flash[:danger] = "権限がありません"
+      redirect_to root_url
+    end
   end
 
   private
 
   def answer_params
-    params.require(:answer).permit(:title, :content, :user_id, :question_id)
+    params.require(:answer).permit(:title, :content, :question_id)
   end
 
   def after_update_path_for(resource)

@@ -1,0 +1,12 @@
+<% comments.each do |comment| %>  
+  <div id="comment">   
+    <p><%= user_info(comment.user_id).name %></p>
+    <p><%= comment.content %></p>
+    <p class="timestamp">
+      <% if user_info(comment.user_id) == current_user %>
+        <%= link_to "削除する", [comment.commentable, comment],class: "link",  method: :delete %>
+      <% end %>
+      <%= comment.created_at.strftime("%Y/%m/%d %H:%M") %>
+    </p>
+  </div>  
+<% end %> 

@@ -19,8 +19,13 @@ Rails.application.routes.draw do
     get "/users/sign_out" => "devise/sessions#destroy"
   end
 
-  resources :questions
-  get  "/user_question", to: "questions#user_question"
+  get  "/user_question", to: "questions#user_question"  
+  resources :questions do
+    resources :comments, only: %i[create destroy], module: :questions
+  end
+
   get  "/answers/:id", to: "answers#new", as: :new_answer
-  resources :answers, except: %i(new)
+  resources :answers, except: %i(new) do
+    resources :comments, only: %i[create destroy], module: :answers
+  end
 end
