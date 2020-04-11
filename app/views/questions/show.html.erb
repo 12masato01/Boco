@@ -12,5 +12,6 @@
       <% end %>
     </p>
   </div>
+  <%= render "comments/comments", commentable: @question, comment: current_user.comments.build %>
   <%= render partial: "answers/show" %> <%# collectionで上手くまわせず。%>
 </div>

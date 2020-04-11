@@ -1,0 +1,7 @@
+$('#comment_area').html("<%= j(render 'comments/comment', comments: @commentable.comments ) %>");  
+
+<% flash.each do |type, message| %>  
+$("#flash_messages").html('<div class="alert alert-<%= type %>"><%= message %></div>');  
+<% end %>  
+
+$('#comment_form').html("<%= j(commentable: @commentable, comment: current_user.comments.build) %>"); 

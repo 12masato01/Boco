@@ -1,8 +1,12 @@
 <% comments.each do |comment| %>  
-  <div id="comment" data-comment="<%= comment.id %>">   
-    <p>コメント：<%= comment.content %></p>  
-    <% if comment.user == current_user %>  
-      <p><%= link_to "削除する", [comment.commentable, comment], method: :delete, remote: true, data: { confirm: "削除しますか？" } %></p>  
-    <% end %>  
+  <div id="comment">   
+    <p><%= user_info(comment.user_id).name %></p>
+    <p><%= comment.content %></p>
+    <p class="timestamp">
+      <% if user_info(comment.user_id) == current_user %>
+        <%= link_to '削除する', [comment.commentable, comment],class: "link",  method: :delete %>
+      <% end %>
+      <%= @question.created_at.strftime("%Y/%m/%d %H:%M") %>
+    </p>
   </div>  
 <% end %> 
