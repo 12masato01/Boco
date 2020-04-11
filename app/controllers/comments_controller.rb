@@ -7,8 +7,8 @@ class CommentsController < ApplicationController
     if @comment.save  
       flash[:success] = "コメントが投稿されました"  
       redirect_back(fallback_location: root_path)
-    else
-      render "new"
+    else  
+      render "questions/show"
     end  
   end  
 

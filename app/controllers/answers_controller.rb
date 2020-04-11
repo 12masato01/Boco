@@ -12,7 +12,7 @@ class AnswersController < ApplicationController
     @answer = current_user.answers.build(answer_params)
     if @answer.save
       flash[:success] = "投稿が保存されました"
-      redirect_to questions_path method: :get
+      redirect_to questions_path
     else    
       @question = Question.find(params[:id])
       render "new"
@@ -24,7 +24,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = "投稿を更新しました" 
-      redirect_to questions_path method: :get
+      redirect_to questions_path
     else
       render "edit"
     end
@@ -39,7 +39,7 @@ class AnswersController < ApplicationController
   def destroy
     if @answer.destroy
       flash[:success] = "質問が削除されました" 
-      redirect_to questions_path method: :get
+      redirect_back(fallback_location: root_path)
     else
       flash[:danger] = "権限がありません"
       redirect_to root_url
