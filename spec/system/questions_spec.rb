@@ -29,7 +29,6 @@ RSpec.describe "Questions", type: :system do
         click_button "質問する"
         expect(page).to have_content "タイトルを入力してください"
         expect(page).to have_content "コンテンツを入力してください"
-        expect(current_path).to eq new_question_path 
       end
     end
   end
