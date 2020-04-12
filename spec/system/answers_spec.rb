@@ -17,7 +17,7 @@ RSpec.describe "Answers", type: :system do
         fill_in "answer[content]", with: "このような解決策があります。"
         click_button "回答する"
         expect(page).to have_content "回答が保存されました"
-        expect(current_path).to eq questions_path
+        expect(current_path).to eq question_path(question)
         expect(page).to have_content "腰が痛い"
       end
     end
@@ -26,7 +26,7 @@ RSpec.describe "Answers", type: :system do
       it "投稿に失敗し、エラーメッセージを表示する" do
         fill_in "answer[content]", with: ""
         click_button "回答する"
-        #expect(page).to have_content "コンテンツを入力してください"
+        expect(page).to have_content "Contentを入力してください"
       end
     end
   end
@@ -49,16 +49,17 @@ RSpec.describe "Answers", type: :system do
         fill_in "question[content]", with: "編集済みです"
         click_button "編集する"
         expect(page).to have_content "回答を更新しました"
-        #expect(page).to have_content "回答を更新しました"
+        expect(current_path).to question_path(question)
       end
 
       it "回答を削除をする" do
         click_link "削除", match: :second
-        expect(current_path).to question_path(question)
         expect(page).to have_content "回答が削除されました"
+         expect(current_path).to question_path(question)
       end
+    end
 
-      context "ログインユーザーと、質問投稿者が一致しない時" do
+    context "ログインユーザーと、質問投稿者が一致しない時" do
       before do
       sign_in other_user
       visit question_path(question)
@@ -69,10 +70,10 @@ RSpec.describe "Answers", type: :system do
         expect(page).not_to have_link "削除"
       end
 
-       it "質問の編集ができない" do
-        visit edit_answer_path(answer)
-        expect(current_path).to eq root_path
+      it "質問の編集ができない" do
+        visit edit_answer_path(question.answers.first)
         expect(page).to have_content "権限がありません"
+        expect(current_path).to eq root_path
       end
     end
   end
