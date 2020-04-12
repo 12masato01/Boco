@@ -5,14 +5,14 @@ class AnswersController < ApplicationController
 
   def new
     @question = Question.find(params[:id])
-    @answer = Answer.new
+    @answer = @question.answers.build
   end
 
   def create
     @answer = current_user.answers.build(answer_params)
     if @answer.save
       flash[:success] = "回答が保存されました"
-      redirect_to questions_path
+      redirect_to question_path(@answer.question)
     else
       render "new"
     end
@@ -23,7 +23,7 @@ class AnswersController < ApplicationController
   def update
     if @answer.update(answer_params)
       flash[:success] = "回答を更新しました"
-      redirect_to questions_path
+      redirect_to question_path(@answer.question)
     else
       render "edit"
     end
