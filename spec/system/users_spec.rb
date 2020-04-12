@@ -25,7 +25,6 @@ RSpec.describe "Users", type: :system do
         fill_in "user[password_confirmation]", with: "pass"
         click_on "登録する"
         expect(page).to have_content "確認用パスワードとパスワードの入力が一致しません"
-        expect(current_path).to eq new_user_registration_path
       end
     end
   end
@@ -51,7 +50,6 @@ RSpec.describe "Users", type: :system do
         fill_in "user[password]", with: "pass"
         click_button "ログイン"
         expect(page).to have_content "メールアドレスまたはパスワードが違います。"
-        expect(current_path).to eq new_user_session_path
       end
     end
   end
@@ -77,8 +75,6 @@ RSpec.describe "Users", type: :system do
         fill_in "user[email]", with: ""
         click_button "更新する"
         expect(page).to have_content "メールアドレスが入力されていません。"
-        expect(current_path).to eq edit_user_registration_path
-      end
     end
 
     it "ログアウトする" do

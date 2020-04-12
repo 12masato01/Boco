@@ -3,14 +3,15 @@
 </div>  
 
 <div id="comment-form">  
-  <%= form_with(model: [commentable, comment], remote: true) do |f| %>
+  <%= form_with(model: [commentable, comment], local: true) do |f| %>
   <%= render "shared/error_message", model: f.object%>
   <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :question_id, value: @question.id %>
   <div class="field">
   <%= f.text_area :content, placeholder: " コメント"%>
   </div>
   <div class="field">
-  <%= f.submit "コメントをする", class: "btn btn-info" %>  
+  <%= f.submit "コメントする", class: "btn btn-info" %>  
   </div>
   <% end %> 
 </div>  
