@@ -16,7 +16,7 @@ RSpec.describe "Questions", type: :system do
         fill_in "question[title]", with: "腰が痛い"
         fill_in "question[content]", with: "どのような運動をしたらよいでしょうか。"
         click_button "質問する"
-        expect(page).to have_content "投稿が保存されました"
+        expect(page).to have_content "質問が保存されました"
         expect(current_path).to eq questions_path
         expect(page).to have_content "腰が痛い"
       end
@@ -81,14 +81,14 @@ RSpec.describe "Questions", type: :system do
         fill_in "question[title]", with: "編集済み"
         fill_in "question[content]", with: "編集済みです"
         click_button "編集する"
-        expect(page).to have_content "投稿を更新しました"
+        expect(page).to have_content "質問を更新しました"
         expect(page).to have_content "編集済み"
       end
 
       it "質問を削除をする" do
         click_link "削除"
         expect(current_path).to eq questions_path
-        expect(page).to have_content "投稿が削除されました"
+        expect(page).to have_content "質問が削除されました"
       end
     end
 
