@@ -17,6 +17,8 @@ Rails.application.routes.draw do
   }
   devise_scope :user do
     get "/users/sign_out" => "devise/sessions#destroy"
+    #ゲストログイン機能
+    post "users/guest_sign_in", to: "users/sessions#new_guest"
   end
 
   get  "/user_question", to: "questions#user_question"  
