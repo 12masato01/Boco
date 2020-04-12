@@ -4,11 +4,13 @@ class CommentsController < ApplicationController
 
   def create
     @comment = @commentable.comments.build(comments_params)
+    @question = Question.find_by(params[:comment][:question_id])
     if @comment.save
       flash[:success] = "コメントが投稿されました"
       redirect_back(fallback_location: root_path)
     else
-      render "questions/show"
+      flash[:danger] = "コメントの投稿に失敗しました"
+      redirect_to question_path(@question)
     end
   end
 
