@@ -1,8 +1,7 @@
 FactoryBot.define do
   factory :answer do
-    title { "MyString" }
-    content { "MyText" }
-    expert { nil }
-    question { nil }
+    association :user
+    association :question
+    content { "このような解決策があります。" }
   end
 end
