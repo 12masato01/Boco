@@ -2,7 +2,7 @@
 
 <div class="container" id="users_registrations_new">
   <div class="btn-facebook">
-    <%= link_to"facebookでログイン", "#", class: "btn" %>
+    <%= link_to"facebookでログイン", user_facebook_omniauth_authorize_path, class: "btn" %>
   </div>
   <div class="btn-test">
     <%= link_to"ゲストログイン（採用担当者様）", users_guest_sign_in_path, method: :post, class: "btn" %>
