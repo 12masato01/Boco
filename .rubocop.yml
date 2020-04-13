@@ -14,6 +14,9 @@ AllCops:
     - "spec/**/*"
     - !ruby/regexp /old_and_unused\.rb$/
 
+Rails:
+  Enabled: true
+
 LineLength:
   Max: 100
 
@@ -27,4 +30,7 @@ ClassAndModuleChildren:
   Enabled: false
 
 Style/FrozenStringLiteralComment:
-  Enabled: false
+  Enabled: false  
+
+Metrics/AbcSize:
+  Max: 25

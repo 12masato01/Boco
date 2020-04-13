@@ -75,6 +75,7 @@ RSpec.describe "Users", type: :system do
         fill_in "user[email]", with: ""
         click_button "更新する"
         expect(page).to have_content "メールアドレスが入力されていません。"
+      end
     end
 
     it "ログアウトする" do

@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :quesiton
-
   factory :comment do
     association :user
     content { "僕も気になります。" }
@@ -9,5 +8,4 @@ FactoryBot.define do
       association :commentable, factory: :question
     end
   end
-
 end
