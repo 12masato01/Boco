@@ -7,7 +7,7 @@ before_action :authenticate_admin!
 
   def destroy
     @question = Question.find(params[:id])
-    flash[:success] = "投稿が削除されました" if @question.destroy
+    flash[:success] = "投稿が削除されました"
     redirect_to admins_questions_path
   end
 end

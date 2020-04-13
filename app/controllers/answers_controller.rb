@@ -51,10 +51,6 @@ class AnswersController < ApplicationController
     params.require(:answer).permit(:title, :content, :question_id)
   end
 
-  def after_update_path_for(resource)
-    question_path(resource)
-  end
-
   def answer_set
     @answer = Answer.find(params[:id])
   end

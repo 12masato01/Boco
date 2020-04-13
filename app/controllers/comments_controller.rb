@@ -1,5 +1,6 @@
 class CommentsController < ApplicationController
   prepend_before_action :set_commentable, only: %i(create destroy)
+  before_action :authenticate_user!
   before_action :set_comment, only: %i(destroy)
 
   def create
@@ -15,8 +16,12 @@ class CommentsController < ApplicationController
   end
 
   def destroy
-    if @comment.destroy
+    if current_user == @comment.user
+      @comment.destroy
       flash[:success] = "コメントが削除されました"
+      redirect_back(fallback_location: root_path)
+    else
+      flash[:danger] = "権限がありません"
       redirect_back(fallback_location: root_path)
     end
   end
