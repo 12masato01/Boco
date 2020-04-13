@@ -8,5 +8,4 @@ FactoryBot.define do
       association :commentable, factory: :question
     end
   end
-
 end

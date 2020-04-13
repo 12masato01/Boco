@@ -37,11 +37,11 @@ RSpec.describe "Comments", type: :system do
       end
     end
 
-      it "コメントを削除をする" do
-        within "timestamp" do
+      it "コメントを削除をする" do #コメントが生成されず落ちる
+        within("timestamp") do
           click_link "削除"
         end
-        expect(current_path).to eq question_path(question)
+        expect(current_path).to eq question_path(comment.question)
         expect(page).to have_content "コメントが削除されました"
       end
 
