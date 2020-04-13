@@ -7,6 +7,39 @@ $height: 42.5rem;
   height: 3rem;
 }
 
+@mixin detail {
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  padding-top: 1%;
+  padding-bottom: 0.5%;
+  width: 100%; 
+  border: 3px solid $color-back; 
+  border-radius: 10px;
+  p {
+    font-size: 1.2rem;
+    padding-right: 3%;
+    padding-left: 3%;
+  }
+  .timestamp {
+    font-size: 1rem;
+    opacity: 0.5;
+    text-align: right;
+  }
+  .link {
+    font-size: 1rem;
+    text-align: right;
+    a {
+      text-decoration:none ;
+      color: black;
+      opacity: 0.5;
+      &:hover {
+        color: $color-main;
+        opacity: 1;
+      }
+    }
+  }
+}
+
 /*ユーザー関連・質問関連画面テンプレート*/
 #users_registrations_new {
   height: $height;
@@ -109,39 +142,17 @@ $height: 42.5rem;
   h2 {
     font-size: 1.5rem;
   }
+  .answer-detail {
+    @include detail;
+  }
   .question-detail {
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-    padding-top: 1%;
-    padding-bottom: 0.5%;
-    width: 100%; 
-    border: 3px solid $color-back; 
-    border-radius: 10px;
-    p {
-      font-size: 1.2rem;
-      padding-right: 3%;
-      padding-left: 3%;
-    }
-    .timestamp {
-      font-size: 1rem;
-      opacity: 0.5;
-      text-align: right;
-    }
-    .link {
-      font-size: 1rem;
-      text-align: right;
-      a {
-        text-decoration:none ;
-        color: black;
-        opacity: 0.5;
-        &:hover {
-          color: $color-main;
-          opacity: 1;
-        }
-      }
-    }
+    @include detail;
   }
 }
+
+/*回答詳細画面*/
+
+
 
 /*フラッシュメッセージ*/
 .alert {
