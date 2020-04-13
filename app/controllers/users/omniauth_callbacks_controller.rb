@@ -21,7 +21,25 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
   #   super
   # end
 
+  def facebook
+    callback_from :facebook
+  end
+
   # protected
+  private
+    def callback_from(provider)
+      provider = provider.to_s
+
+      @user = User.find_for_oauth(request.env['omniauth.auth'])
+
+      if @user.persisted?
+        flash[:success] = I18n.t('devise.omniauth_callbacks.success', kind: provider.capitalize)
+        sign_in_and_redirect @user, event: :authentication
+      else
+        session["devise.#{provider}_data"] = request.env['omniauth.auth']
+        redirect_to new_user_registration_url
+      end
+    end
 
   # The path used when OmniAuth fails
   # def after_omniauth_failure_path_for(scope)
