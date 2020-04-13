@@ -33,7 +33,6 @@ RSpec.describe "Answers", type: :system do
 
   describe "質問詳細ページ" do
     before do
-      create(:answer, content: "こんな解決策があります。", user: user)
       sign_in user
       visit question_path(question)
     end
@@ -51,7 +50,7 @@ RSpec.describe "Answers", type: :system do
         fill_in "answer[content]", with: "編集済みです"
         click_button "編集する"
         expect(page).to have_content "回答を更新しました"
-        expect(current_path).to question_path(question)
+        expect(current_path).to eq question_path(answer.question)
       end
 
       it "回答を削除をする" do
@@ -59,7 +58,7 @@ RSpec.describe "Answers", type: :system do
           click_link "削除"
         end
         expect(page).to have_content "回答が削除されました"
-        expect(current_path).to question_path(question)
+        expect(current_path).to eq question_path(answer.question)
       end
     end
 
