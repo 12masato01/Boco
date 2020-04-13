@@ -1,7 +1,7 @@
 class AnswersController < ApplicationController
-  before_action :authenticate_user!, except: %i(index show)
-  before_action :answer_set, only: %i(edit update show destroy)
-  before_action :correct_user, only: %i(edit update destroy)
+  before_action :authenticate_user!, except: %i[index show]
+  before_action :answer_set, only: %i[edit update show destroy]
+  before_action :correct_user, only: %i[edit update destroy]
 
   def new
     @question = Question.find(params[:id])
@@ -11,10 +11,10 @@ class AnswersController < ApplicationController
   def create
     @answer = current_user.answers.build(answer_params)
     if @answer.save
-      flash[:success] = "回答が保存されました"
+      flash[:success] = '回答が保存されました'
       redirect_to question_path(@answer.question)
     else
-      render "new"
+      render 'new'
     end
   end
 
@@ -22,10 +22,10 @@ class AnswersController < ApplicationController
 
   def update
     if @answer.update(answer_params)
-      flash[:success] = "回答を更新しました"
+      flash[:success] = '回答を更新しました'
       redirect_to question_path(@answer.question)
     else
-      render "edit"
+      render 'edit'
     end
   end
 
@@ -37,10 +37,10 @@ class AnswersController < ApplicationController
 
   def destroy
     if @answer.destroy
-      flash[:success] = "回答が削除されました"
+      flash[:success] = '回答が削除されました'
       redirect_back(fallback_location: root_path)
     else
-      flash[:danger] = "権限がありません"
+      flash[:danger] = '権限がありません'
       redirect_to root_url
     end
   end
@@ -57,9 +57,9 @@ class AnswersController < ApplicationController
 
   def correct_user
     @answer = current_user.answers.find_by(id: params[:id])
-    if @answer.nil?
+    return if @answer.nil?
+
     redirect_to root_path
-    flash[:danger] = "権限がありません"
-    end
+    flash[:danger] = '権限がありません'
   end
 end
