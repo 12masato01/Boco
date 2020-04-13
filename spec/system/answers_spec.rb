@@ -46,7 +46,7 @@ RSpec.describe "Answers", type: :system do
 
       it "回答の編集をする" do
         click_link "編集", match: :second
-        fill_in "question[content]", with: "編集済みです"
+        fill_in "answer[content]", with: "編集済みです"
         click_button "編集する"
         expect(page).to have_content "回答を更新しました"
         expect(current_path).to question_path(question)
@@ -55,7 +55,7 @@ RSpec.describe "Answers", type: :system do
       it "回答を削除をする" do
         click_link "削除", match: :second
         expect(page).to have_content "回答が削除されました"
-         expect(current_path).to question_path(question)
+        expect(current_path).to question_path(question)
       end
     end
 

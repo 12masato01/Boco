@@ -1,6 +1,5 @@
 FactoryBot.define do
   factory :quesiton
-
   factory :comment do
     association :user
     content { "僕も気になります。" }
