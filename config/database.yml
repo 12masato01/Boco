@@ -14,12 +14,12 @@ default: &default
   encoding: utf8
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
   username: horimasato
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: <%= ENV["DB_PASSWORD"] %>
   host: localhost
 
 development:
   <<: *default
-  host: boco-mysql.ctszdfckxc1n.ap-northeast-1.rds.amazonaws.com
+  host: <%= ENV["DB_HOST" ] %>
   database: Boco_development
 
 # Warning: The database defined as "test" will be erased and
@@ -51,7 +51,7 @@ production:
   <<: *default
   database: Boco_production
   username: horimasato
-  password: <%= ENV['DB_PASSWORD'] %>
+  password: <%= ENV["DB_PASSWORD"] %>
 
 test:
   <<: *default
