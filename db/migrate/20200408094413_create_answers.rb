@@ -3,8 +3,8 @@ class CreateAnswers < ActiveRecord::Migration[5.2]
     create_table :answers do |t|
       t.string :title
       t.text :content
-      t.references :expert, foreign_key: true
       t.references :question, foreign_key: true
+      t.references :expert, foreign_key: true
 
       t.timestamps
     end
