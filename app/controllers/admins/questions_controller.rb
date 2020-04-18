@@ -7,6 +7,7 @@ class Admins::QuestionsController < ApplicationController
 
   def destroy
     @question = Question.find(params[:id])
+    @question.destroy
     flash[:success] = '投稿が削除されました'
     redirect_to admins_questions_path
   end
