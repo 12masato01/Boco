@@ -1,5 +1,5 @@
 # Boco 
-4/20仮完成（未実装機能あり、随時機能追加）
+### 4/20仮完成（未実装機能あり、随時機能追加）
 
 http://www.body-consult.com   ※ログインページから、ユーザー情報の入力無しでゲストログインが可能です。
 
@@ -25,8 +25,35 @@ http://www.body-consult.com   ※ログインページから、ユーザー情�
 ・身体に関する知識を身につけ、より健康増進に努めたい人
 
 # 参考資料
-[ER図](file:///Users/horimasato/Downloads/New%20Diagram%20(3).pdf)
+・[ER図](https://drive.google.com/drive/my-drive)
+※完成予定図
 
 # 使用技術
 ### ●環境
 Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
+
+### ●インフラ
+- AWS：EC2、RDS（MySQL）、VPC、Route53、Elastic IP
+- アプリケーションサーバー：Unicorn  
+- Webサ(ーバー：Nginx
+
+### ●AWS構成図
+
+![スクリーンショット 2020-04-20 21 38 32](https://user-images.githubusercontent.com/56257719/79752515-6518ca80-834f-11ea-9f9e-edae66a1024a.png)
+
+### ●アプリケーションの機能 
+- ユーザーログイン・登録機能（Devise）
+- Facebookログイン機能（Devise、OmniAuth）
+- 質問のCRUD機能
+- 質問に対する回答のCRUD機能
+- 質問・回答に対するコメント機能（ポリモーフィック関連）
+- 管理ユーザーの作成
+- 管理ユーザー機能（ユーザー・質問の削除）
+
+### ●その他の技術
+- Rspecでテストを記述
+- 静的解析ツールの使用
+- Git flowを活用し開発
+
+### ●今後実装する機能
+[issue](https://github.com/12masato01/Boco/issues)を御覧ください。
