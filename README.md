@@ -56,4 +56,4 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 - Git flowを活用し開発
 
 ### ●今後実装する機能
-[issue](https://github.com/12masato01/Boco/issues)を御覧ください。
+詳細は[issue](https://github.com/12masato01/Boco/issues)を御覧ください。
