@@ -1,24 +1,7 @@
-# README
+# Boco　
+身体に関する専門家に相談できる、ヘルスケアのQ＆Aサイト
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+http://www.body-consult.com
+![image](https://user-images.githubusercontent.com/56257719/79718877-1c91ea80-8318-11ea-9a43-007da7ef5f23.png)
 
-Things you may want to cover:
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
