@@ -35,7 +35,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 ### ●インフラ
 - AWS：EC2、RDS（MySQL）、VPC、Route53、Elastic IP
 - アプリケーションサーバー：Unicorn  
-- Webサ(ーバー：Nginx
+- Webサーバー：Nginx
 
 ### ●AWS構成図
 
