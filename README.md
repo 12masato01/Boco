@@ -38,7 +38,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 ![スクリーンショット 2020-04-20 21 38 32](https://user-images.githubusercontent.com/56257719/79752515-6518ca80-834f-11ea-9f9e-edae66a1024a.png)
 
 ### ●ER図
-![スクリーンショット 2020-04-20 22 20 27](https://user-images.githubusercontent.com/56257719/79756387-854b8800-8355-11ea-85c1-32224a7e9ae7.png)
+![スクリーンショット 2020-04-20 22 24 21](https://user-images.githubusercontent.com/56257719/79756537-ba57da80-8355-11ea-9e44-86b9f70ebcb7.png)
 
 ※完成予定図
 
