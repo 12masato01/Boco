@@ -19,7 +19,7 @@ default: &default
 
 development:
   <<: *default
-  host: <%= ENV["DB_HOST" ] %>
+  host: localhost
   database: Boco_development
 
 # Warning: The database defined as "test" will be erased and
@@ -49,9 +49,10 @@ development:
 #
 production:
   <<: *default
-  database: Boco_production
+  database: boco-mysql
   username: horimasato
   password: <%= ENV["DB_PASSWORD"] %>
+  hots: <%= ENV["DB_HOST"] %>
 
 test:
   <<: *default
