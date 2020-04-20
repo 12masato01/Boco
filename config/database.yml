@@ -52,7 +52,7 @@ production:
   database: boco-mysql
   username: horimasato
   password: <%= ENV['DB_PASSWORD'] %>
-  hots: <%= ENV['DB_HOST'] %>
+  host: <%= ENV['DB_HOST'] %>
 
 test:
   <<: *default
