@@ -5,12 +5,17 @@
   <h2 class="title"><i class="fab fa-quora"></i><%= @question.user.name %></h2>
   <div class="question-detail">
     <p><%= simple_format(@question.content) %></p>
-    <p class="timestamp"> <%= @question.created_at.strftime("%Y/%m/%d %H:%M") %>
+    <p class="timestamp"><%= @question.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
-      <%= link_to "回答する", new_answer_path(@question) %>
+      <% unless current_user == @question.user %>
+      <%= render 'shared/favorite_type', question: @question %>
+      <%= link_to("回答する", new_answer_path(@question), {class: "btn btn-info"}) %>
+      <% end %>
       <% if current_user == @question.user %>
-        <%= link_to "編集", edit_question_path(@question) %>
-        <%= link_to "削除", question_path(@question), method: :delete %>
+        <span class="link-edit">
+          <%= link_to "編集", edit_question_path(@question) %>
+          <%= link_to "削除", question_path(@question), method: :delete %> 
+        <span>
       <% end %>
     </p>
 </div>

@@ -90,6 +90,10 @@ RSpec.describe "Questions", type: :system do
         expect(current_path).to eq questions_path
         expect(page).to have_content "質問が削除されました"
       end
+
+       it "お気に入り登録のリンクを表示しない" do
+        expect(page).not_to have_link "気になっている質問に追加"
+      end
     end
 
     context "ログインユーザーと、質問投稿者が一致しない時" do
@@ -102,10 +106,27 @@ RSpec.describe "Questions", type: :system do
         expect(page).not_to have_link "削除"
       end
 
-       it "質問の編集ができない" do
+      it "質問の編集ができない" do
         visit edit_question_path(question)
         expect(current_path).to eq root_path
         expect(page).to have_content "権限がありません"
+      end
+
+      it "お気に入り登録のリンクを表示する" do
+        expect(page).to have_link "気になっている質問に追加"
+      end
+
+      it "お気に入り登録ができる" do
+        click_link "気になっている質問に追加"
+        expect(current_path).to eq question_path(question)
+        expect(page).to have_content "気になっている質問に登録しました"
+      end
+
+       it "お気に入り登録を解除できる" do
+        click_link "気になっている質問に追加"
+        click_link "気になっている質問に追加済み"
+        expect(current_path).to eq question_path(question)
+        expect(page).to have_content "気になっている質問から削除しました。"
       end
     end
   end

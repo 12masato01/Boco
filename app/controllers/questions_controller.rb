@@ -49,6 +49,10 @@ class QuestionsController < ApplicationController
     @questions = current_user.questions
   end
 
+  def user_favorite
+    @questions = current_user.favorite_questions.includes(:user).all
+  end
+
   private
 
   def question_params
@@ -61,7 +65,7 @@ class QuestionsController < ApplicationController
 
   def correct_user
     @question = current_user.questions.find_by(id: params[:id])
-    return if @question.nil?
+    return unless @question.nil?
 
     redirect_to root_path
     flash[:danger] = '権限がありません'

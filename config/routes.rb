@@ -22,9 +22,11 @@ Rails.application.routes.draw do
     post "users/guest_sign_in", to: "users/sessions#new_guest"
   end
 
-  get  "/user_question", to: "questions#user_question"  
+  get  "/user_question", to: "questions#user_question" 
+  get  "/user_favorite", to: "questions#user_favorite" 
   resources :questions do
     resources :comments, only: %i[create destroy], module: :questions
+    resource :favorite, only: %i[create destroy]
   end
 
   get  "/answers/:id", to: "answers#new", as: :new_answer
