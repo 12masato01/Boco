@@ -49,8 +49,8 @@ class QuestionsController < ApplicationController
     @questions = current_user.questions
   end
 
-  def favorite_question
-    @questions = current_user.favorite_questions.includes(:user)
+  def user_favorite
+    @questions = current_user.favorite_questions.includes(:user).all
   end
 
   private
