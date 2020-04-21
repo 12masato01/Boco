@@ -6,8 +6,10 @@
     <p class="timestamp"> <%= answer.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
       <% if current_user == answer.user %>
-        <%= link_to "編集", edit_answer_path(answer) %>
-        <%= link_to "削除", answer_path(answer), method: :delete %>
+        <span class="link-edit">
+          <%= link_to "編集", edit_answer_path(answer) %>
+          <%= link_to "削除", answer_path(answer), method: :delete %>
+        <span>
       <% end %>
     </p>
   </div>
