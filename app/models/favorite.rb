@@ -2,5 +2,6 @@ class Favorite < ApplicationRecord
   belongs_to :user
   belongs_to :question
 
-  validates :user_id, uniqueness: { scope: :question_id }
+  validates :user_id, presence: true, uniqueness: { scope: :question_id }
+  validates :question_id, presence: true
 end
