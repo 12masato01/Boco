@@ -57,7 +57,7 @@ class AnswersController < ApplicationController
 
   def correct_user
     @answer = current_user.answers.find_by(id: params[:id])
-    return if !@answer.nil?
+    return unless @answer.nil?
 
     redirect_to root_path
     flash[:danger] = '権限がありません'

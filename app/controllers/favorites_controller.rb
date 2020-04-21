@@ -17,6 +17,7 @@ class FavoritesController < ApplicationController
   end
 
   private
+
   def question_params
     params.permit(:question_id)
   end
