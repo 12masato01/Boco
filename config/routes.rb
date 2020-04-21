@@ -25,7 +25,8 @@ Rails.application.routes.draw do
   get  "/user_question", to: "questions#user_question"  
   resources :questions do
     resources :comments, only: %i[create destroy], module: :questions
-    resources :favorites, only: %i[create destroy]
+    resource :favorite, only: %i[create destroy]
+    get :favorites, on: :collection
   end
 
   get  "/answers/:id", to: "answers#new", as: :new_answer

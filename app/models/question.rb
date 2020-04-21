@@ -7,4 +7,8 @@ class Question < ApplicationRecord
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
+
+  def favorite_by?(user)
+    favorites.where(user_id: user.id).exists?
+  end
 end
