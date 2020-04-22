@@ -28,9 +28,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 
 group :development, :test do
   gem 'byebug', platforms: %i[mri mingw x64_mingw]
-  gem 'pry-rails'
-  gem 'pry-byebug'
   gem 'factory_bot_rails'
+  gem 'pry-byebug'
+  gem 'pry-rails'
   gem 'rspec-rails'
   gem 'spring-commands-rspec'
 end
