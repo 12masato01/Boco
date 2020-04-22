@@ -235,3 +235,22 @@ background-color: #F2DEDE;
     width: 95%;
   }
 }
+
+/*searchボックス*/
+input[type="search"] {
+  position: relative;
+  font: 15px/24px sans-serif;
+  width: 12rem;
+  height: 2.3rem;
+  padding: 0.5em;
+	box-sizing: border-box;
+	transition: 0.3s;
+	letter-spacing: 1px;
+	border: 1px solid $color-main;
+	border-radius: 4px;
+  &:focus {
+    border: 1px solid $color-main;
+    outline: none;
+    box-shadow: 0 0 5px 1px $color-main;
+  }
+}
