@@ -2,7 +2,10 @@
 
 <div class="container" id=questions>
   <div class="index-question">
-    <h1>みんなの質問</h1>
-    <%= render @questions %>
+    <% if @search_questions %>
+      <%= render partial: "questions/question", collection: @search_questions %>
+    <% else %>
+       <%= render @questions %>
+    <% end %> 
   </div>
 </div>
