@@ -2,10 +2,10 @@
 
 <div class="container" id=questions>
   <div class="index-question">
-    <% if @search_questions.blank? %>
-      <%= render @questions %>
-    <% else %>
+    <% if @search_questions %>
       <%= render partial: "questions/question", collection: @search_questions %>
+    <% else %>
+       <%= render @questions %>
     <% end %> 
   </div>
 </div>

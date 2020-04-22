@@ -13,10 +13,10 @@
         </ul>
       </div>
       <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
-        <form class="form-inline my-2 my-lg-0">
-          <input class="form-control mr-sm-2" type="text" placeholder="キーワードを入力" aria-label="Search">
-          <button class="btn btn-outline-info mr-2 my-2 my-sm-0" type="submit">質問を検索</button>
-        </form>
+        <%= search_form_for @q, url: questions_path do |f| %>
+          <%= f.search_field :title_cont, placeholder: "キーワードを入力", class: "search mr-sm-2"%>
+          <%= f.submit "みんなの質問を検索", class: "btn btn-outline-info mr-2 my-2 my-sm-0"%>
+        <% end %>
         <%= link_to"会員登録", new_user_registration_path, class: "btn btn-info mr-2" %>
         <%= link_to"ログイン", new_user_session_path, class: "btn btn-info mr-2" %>
       </div>
