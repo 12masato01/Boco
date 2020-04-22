@@ -58,3 +58,5 @@ gem 'omniauth-facebook'
 gem 'bootstrap', '~> 4.3.1'
 gem 'font-awesome-sass'
 gem 'jquery-rails'
+
+gem 'ransack'
