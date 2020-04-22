@@ -130,4 +130,52 @@ RSpec.describe "Questions", type: :system do
       end
     end
   end
+
+  describe "検索機能" do
+    before do
+      visit root_path
+      create(:question, title: "腰")
+      create(:question, title: "肩")
+    end
+
+    context "腰を検索した時" do
+    before do
+      fill_in  "q[title_cont]", with: "腰"
+      click_button "みんなの質問を検索"
+    end
+      it "腰を表示する" do
+        expect(current_path).to eq questions_path
+        expect(page).to have_content "腰"
+      end
+
+      it "肩を表示しない" do
+        expect(current_path).to eq questions_path
+        expect(page).not_to have_content "肩"
+      end
+    end
+
+    context "何も入力せず検索した時" do
+      before do
+        fill_in  "q[title_cont]", with: ""
+        click_button "みんなの質問を検索"
+      end
+      it "質問一覧を表示" do
+        expect(current_path).to eq questions_path
+        expect(page).to have_content "腰"
+        expect(page).to have_content "肩"
+      end
+    end
+
+    context "該当しないキーワード検索した時" do
+      before do
+        fill_in  "q[title_cont]", with: "足"
+        click_button "みんなの質問を検索"
+      end
+      it "質問は表示されない" do
+        expect(current_path).to eq questions_path
+        expect(page).not_to have_content "腰"
+        expect(page).not_to have_content "肩"
+      end
+    end
+  end
 end
