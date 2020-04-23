@@ -3,7 +3,7 @@
 <h2 class="title"><i class="fas fa-font"></i><%= user_info(answer.user_id).name %></h2>
   <div class="answer-detail">
     <p><%= simple_format(answer.content) %></p>
-    <%= image_tag answer.image.url if answer.image? %>
+    <p><%= image_tag answer.image.url if answer.image? %><p>
     <p class="timestamp"> <%= answer.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
       <% if current_user == answer.user %>
