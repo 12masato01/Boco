@@ -4,6 +4,7 @@ class Question < ApplicationRecord
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :favorites, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
+  mount_uploader :image, ImageUploader
   validates :user_id, presence: true
   validates :title, presence: true
   validates :content, presence: true
