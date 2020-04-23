@@ -5,7 +5,13 @@
   <h2 class="title"><i class="fab fa-quora"></i><%= @question.user.name %></h2>
   <div class="question-detail">
     <p><%= simple_format(@question.content) %></p>
-    <p><%= image_tag @question.image.url if @question.image? %></p>
+    <% if @question.image? %>
+      <% if @question.image.file.content_type.include?('image/') %>
+        <p><%= image_tag @question.image.url(:thumb) %></p>
+      <% else %>
+        <p><%= video_tag @question.image.url, width: "30%", height: "30%", controls: true, autobuffer: true %></p>
+      <% end %>
+    <% end %>
     <p class="timestamp"><%= @question.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
       <% unless current_user == @question.user %>
