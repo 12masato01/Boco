@@ -17,8 +17,8 @@ class Question < ApplicationRecord
   private
 
     def image_size
-      if image.size > 5.megabytes
-        errors.add(:picture, "5MB以上は添付できません")
+      if image.size > 10.megabytes
+        errors.add(:image, "10MB以上は添付できません")
       end
     end
 end

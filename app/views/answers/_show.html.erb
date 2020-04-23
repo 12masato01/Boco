@@ -7,7 +7,7 @@
       <% if answer.image.file.content_type.include?('image/') %>
         <p><%= image_tag answer.image.url(:thumb) %></p>
       <% else %>
-        <p><%= video_tag answer.image.url, width: "30%", height: "30%", controls: true, autobuffer: true %></p>
+        <p><%= video_tag answer.image.url, size: 20*15, controls: true, autobuffer: true %></p>
       <% end %>
     <% end %>
     <p class="timestamp"> <%= answer.created_at.strftime("%Y/%m/%d %H:%M") %>
