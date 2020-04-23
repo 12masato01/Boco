@@ -44,7 +44,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 
 ### ●アプリケーションの機能 
 - ユーザーログイン・登録機能（Devise）
-- Facebookログイン機能（Devise、OmniAuth）
+- Facebookログイン機能（Devise、OmniAuth）　※ローカルでは可　本番環境はSSL化待ち
 - 質問のCRUD機能
 - 質問に対する回答のCRUD機能
 - 質問・回答に対するコメント機能（ポリモーフィック関連）
