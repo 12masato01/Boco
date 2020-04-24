@@ -7,7 +7,9 @@
     <p><%= simple_format(@question.content) %></p>
     <% if @question.image? %>
       <% if @question.image.file.content_type.include?('image/') %>
-        <p><%= image_tag @question.image.url(:thumb) %></p>
+        <%= link_to @question.image.url, target: :_blank do %>
+          <p><%= image_tag @question.image.url(:thumb) %></p>
+        <% end %>
       <% else %>
         <p><%= video_tag @question.image.url, size: 15*15, controls: true, autobuffer: true %></p>
       <% end %>

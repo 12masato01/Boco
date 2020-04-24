@@ -4,11 +4,13 @@
   <div class="answer-detail">
     <p><%= simple_format(answer.content) %></p>
     <% if answer.image? %>
-      <% if answer.image.file.content_type.include?('image/') %>
-        <p><%= image_tag answer.image.url(:thumb) %></p>
-      <% else %>
-        <p><%= video_tag answer.image.url, size: 20*15, controls: true, autobuffer: true %></p>
-      <% end %>
+        <% if answer.image.file.content_type.include?('image/') %>
+          <%= link_to answer.image.url, target: :_blank do %>
+            <p><%= image_tag answer.image.url(:thumb) %></p>
+          <% end %>
+        <% else %>
+          <p><%= video_tag answer.image.url, size: 15*15, controls: true, autobuffer: true %></p>
+        <% end %>
     <% end %>
     <p class="timestamp"> <%= answer.created_at.strftime("%Y/%m/%d %H:%M") %>
     <p class="link">
