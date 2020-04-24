@@ -39,14 +39,13 @@ class ImageUploader < CarrierWave::Uploader::Base
   def extension_whitelist
     %w(jpg jpeg gif png mp4 mov m4v)
   end
+
+  def filename
+    original_filename if original_filename
+  end
   private
 
     def is_thumb? picture
       picture.content_type.include?("image/")
     end
-  # Override the filename of the uploaded files:
-  # Avoid using model.id or version_name here, see uploader/store.rb for details.
-  # def filename
-  #   "something.jpg" if original_filename
-  # end
 end
