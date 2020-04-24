@@ -29,7 +29,7 @@ http://www.body-consult.com   ※ログインページから、ユーザー情�
 Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 
 ### ●インフラ
-- AWS：EC2、RDS（MySQL）、VPC、Route53、Elastic IP
+- AWS：EC2、RDS（MySQL）、S3、VPC、Route53、Elastic IP
 - アプリケーションサーバー：Unicorn  
 - Webサーバー：Nginx
 
@@ -52,6 +52,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 - 管理ユーザー機能（ユーザー・質問の削除）
 - お気に入り機能（質問のお気に入り登録・削除、お気に入り一覧ページ）
 - 検索機能(ransack)
+- 画像・動画投稿機能
 
 ### ●その他の技術
 - Rspecでテストを記述
