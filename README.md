@@ -35,7 +35,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 
 ### ●AWS構成図
 
-![スクリーンショット 2020-04-24 23 00 16](https://user-images.githubusercontent.com/56257719/80220936-8810ea80-867f-11ea-9e19-6e17e8cde1eb.png)
+![スクリーンショット 2020-04-25 12 27 27](https://user-images.githubusercontent.com/56257719/80270102-508e5680-86f0-11ea-8b35-82527e735677.png)
 
 ### ●ER図
 ![スクリーンショット 2020-04-20 22 24 21](https://user-images.githubusercontent.com/56257719/79756537-ba57da80-8355-11ea-9e44-86b9f70ebcb7.png)
