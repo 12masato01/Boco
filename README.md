@@ -1,7 +1,7 @@
 # Boco 
 ### 4/20仮完成（未実装機能あり、随時機能追加）
 
-http://www.body-consult.com   ※ログインページから、ユーザー情報の入力無しでゲストログインが可能です。
+https://www.body-consult.com   ※ログインページから、ユーザー情報の入力無しでゲストログインが可能です。
 
 ![image](https://user-images.githubusercontent.com/56257719/79718877-1c91ea80-8318-11ea-9a43-007da7ef5f23.png)
 
@@ -29,7 +29,7 @@ http://www.body-consult.com   ※ログインページから、ユーザー情�
 Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 
 ### ●インフラ
-- AWS：EC2、RDS（MySQL）、S3、VPC、Route53、Elastic IP
+- AWS：EC2、RDS（MySQL）、S3、VPC、Route53、Elastic IP、ACM
 - アプリケーションサーバー：Unicorn  
 - Webサーバー：Nginx
 
@@ -58,6 +58,7 @@ Rails: 5.2.4　Ruby: 2.6.5　MySQL: 8.0.19
 - Rspecでテストを記述
 - 静的解析ツール（rubocop）の使用
 - Git flowを活用し開発
+- AWS ACMでSSL証明書を発行し、SSL化
 
 ### ●今後実装する機能
 詳細は[issue](https://github.com/12masato01/Boco/issues)を御覧ください。
