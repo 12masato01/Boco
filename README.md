@@ -3,7 +3,7 @@
 
 https://www.body-consult.com   ※ログインページから、ユーザー情報の入力無しでゲストログインが可能です。
 
-![image](https://user-images.githubusercontent.com/56257719/79718877-1c91ea80-8318-11ea-9a43-007da7ef5f23.png){:target="_blank"}
+![image](https://user-images.githubusercontent.com/56257719/79718877-1c91ea80-8318-11ea-9a43-007da7ef5f23.png)
 
 
 # サービスの概要
