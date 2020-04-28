@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_015320) do
+ActiveRecord::Schema.define(version: 2020_04_28_075905) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -50,6 +50,17 @@ ActiveRecord::Schema.define(version: 2020_04_23_015320) do
     t.datetime "updated_at", null: false
     t.index ["question_id"], name: "index_favorites_on_question_id"
     t.index ["user_id"], name: "index_favorites_on_user_id"
+  end
+
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "send_user_id", null: false
+    t.integer "notified_user_id", null: false
+    t.boolean "checked", default: false, null: false
+    t.string "notificable_type"
+    t.bigint "notificable_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notificable_type", "notificable_id"], name: "index_notifications_on_notificable_type_and_notificable_id"
   end
 
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
