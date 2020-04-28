@@ -2,6 +2,7 @@ class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
   has_many :comments, as: :commentable, dependent: :destroy
+  has_many :notifications, as: :notificable, dependent: :destroy
   mount_uploader :image, ImageUploader
   validates :question_id, presence: true
   validates :user_id, presence: true

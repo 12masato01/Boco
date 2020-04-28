@@ -3,6 +3,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :notifications, as: :notificable, dependent: :destroy
   default_scope -> { order(created_at: :desc) }
   mount_uploader :image, ImageUploader
   validates :user_id, presence: true
