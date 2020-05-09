@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_04_23_015320) do
+ActiveRecord::Schema.define(version: 2020_04_28_075905) do
 
   create_table "admins", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -52,6 +52,20 @@ ActiveRecord::Schema.define(version: 2020_04_23_015320) do
     t.index ["user_id"], name: "index_favorites_on_user_id"
   end
 
+  create_table "notifications", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "send_user_id_id", null: false
+    t.bigint "notified_user_id_id", null: false
+    t.string "notificable_type"
+    t.bigint "notificable_id"
+    t.string "action", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["notificable_type", "notificable_id"], name: "index_notifications_on_notificable_type_and_notificable_id"
+    t.index ["notified_user_id_id"], name: "index_notifications_on_notified_user_id_id"
+    t.index ["send_user_id_id"], name: "index_notifications_on_send_user_id_id"
+  end
+
   create_table "questions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "content"
     t.bigint "user_id"
@@ -79,5 +93,7 @@ ActiveRecord::Schema.define(version: 2020_04_23_015320) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "questions"
   add_foreign_key "favorites", "users"
+  add_foreign_key "notifications", "users", column: "notified_user_id_id"
+  add_foreign_key "notifications", "users", column: "send_user_id_id"
   add_foreign_key "questions", "users"
 end
