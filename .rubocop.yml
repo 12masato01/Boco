@@ -18,7 +18,7 @@ Rails:
   Enabled: true
 
 LineLength:
-  Max: 100
+  Max: 120
 
 AsciiComments:
   Enabled: false

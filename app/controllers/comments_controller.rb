@@ -7,7 +7,7 @@ class CommentsController < ApplicationController
     @comment = @commentable.comments.build(comments_params)
     @question = Question.find_by(params[:comment][:question_id])
     if @comment.save
-      #@question.create_notification_comment!(current_user, @comment.id)
+      # @question.create_notification_comment!(current_user, @comment.id)
       flash[:success] = 'コメントが投稿されました'
       redirect_back(fallback_location: root_path)
     else

@@ -21,8 +21,7 @@ class Question < ApplicationRecord
       save_notification_comment!(current_user, comment_id, temp_id['user_id'])
     end
     save_notification_comment!(current_user, comment_id, user_id) if temp_ids.blank?
-  end 
-
+  end
 
   def save_notification_comment!(current_user, comment_id, notified_user_id)
     notification = current_user.active_notifications.new(
@@ -32,17 +31,13 @@ class Question < ApplicationRecord
       action: 'comment'
     )
 
-    if notification.send_user_id == notification.notified_user_id
-      notification.checked = true
-    end
+    notification.checked = true if notification.send_user_id == notification.notified_user_id
     notification.save if notification.valid?
   end
 
   private
 
-    def image_size
-      if image.size > 10.megabytes
-        errors.add(:image, "10MB以上は添付できません")
-      end
-    end
+  def image_size
+    errors.add(:image, '10MB以上は添付できません') if image.size > 10.megabytes
+  end
 end
