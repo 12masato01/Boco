@@ -6,8 +6,7 @@ class User < ApplicationRecord
   has_many :favorite_questions, through: :favorites, source: :question
   has_many :active_notifications,  class_name: 'Notification', foreign_key: 'send_user_id', dependent: :destroy
   has_many :passive_notifications, class_name: 'Notification', foreign_key: 'notified_user_id', dependent: :destroy
-  # Include default devise modules. Others available are:
-  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :omniauthable
 
