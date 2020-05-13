@@ -1,7 +1,7 @@
 class QuestionsController < ApplicationController
   before_action :authenticate_user!, except: %i[index]
-  before_action :correct_user, only: %i[edit update]
-  before_action :question_set, only: %i[edit update show destroy]
+  before_action :correct_user,       only: %i[edit update]
+  before_action :question_set,       only: %i[edit update show destroy]
 
   def new
     @question = Question.new

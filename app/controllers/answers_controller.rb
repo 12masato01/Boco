@@ -1,6 +1,6 @@
 class AnswersController < ApplicationController
   before_action :authenticate_user!, except: %i[index show]
-  before_action :answer_set, only: %i[edit update show destroy]
+  before_action :answer_set, only:   %i[edit update show destroy]
   before_action :correct_user, only: %i[edit update destroy]
 
   def new

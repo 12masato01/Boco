@@ -3,6 +3,7 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_comment, only: %i[destroy]
 
+
   def create
     @comment = @commentable.comments.build(comments_params)
     @question = Question.find_by(params[:comment][:question_id])
