@@ -1,13 +1,13 @@
 class Answer < ApplicationRecord
   belongs_to :user
   belongs_to :question
-  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :comments,      as: :commentable, dependent: :destroy
   has_many :notifications, as: :notificable, dependent: :destroy
-  mount_uploader :image, ImageUploader
   validates :question_id, presence: true
-  validates :user_id, presence: true
-  validates :content, presence: true
+  validates :user_id,     presence: true
+  validates :content,     presence: true
   validate  :image_size
+  mount_uploader :image, ImageUploader
 
   def create_notification_comment!(current_user, comment_id)
     temp_ids = Comment.select(:user_id).where(answer_id: id).where.not(user_id: current_user.id).distinct

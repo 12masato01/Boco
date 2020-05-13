@@ -1,15 +1,15 @@
 class Question < ApplicationRecord
   belongs_to :user
-  has_many :answers, dependent: :destroy
-  has_many :comments, as: :commentable, dependent: :destroy
-  has_many :favorites, dependent: :destroy
+  has_many :answers,       dependent: :destroy
+  has_many :comments,      as: :commentable, dependent: :destroy
+  has_many :favorites,     dependent: :destroy
   has_many :notifications, as: :notificable, dependent: :destroy
-  default_scope -> { order(created_at: :desc) }
-  mount_uploader :image, ImageUploader
   validates :user_id, presence: true
-  validates :title, presence: true
+  validates :title,   presence: true
   validates :content, presence: true
-  validate  :image_size
+  validate :image_size
+  mount_uploader :image, ImageUploader
+  default_scope -> { order(created_at: :desc) }
 
   def favorite_by?(user)
     favorites.where(user_id: user.id).exists?
