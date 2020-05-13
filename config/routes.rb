@@ -7,13 +7,13 @@ Rails.application.routes.draw do
     sessions: "admins/sessions"
   }
   namespace :admins do
-    resources :users, only: %i(index destroy)
+    resources :users,     only: %i(index destroy)
     resources :questions, only: %i(index destroy)
   end
 
   devise_for :users, controllers: {
-    sessions:      "users/sessions",
-    registrations: "users/registrations",
+    sessions:           "users/sessions",
+    registrations:      "users/registrations",
     omniauth_callbacks: "users/omniauth_callbacks"
   }
   devise_scope :user do
@@ -26,7 +26,7 @@ Rails.application.routes.draw do
   get  "/user_favorite", to: "questions#user_favorite" 
   resources :questions do
     resources :comments, only: %i[create destroy], module: :questions
-    resource :favorite, only: %i[create destroy]
+    resource :favorite, only:  %i[create destroy]
   end
 
   get  "/answers/:id", to: "answers#new", as: :new_answer
